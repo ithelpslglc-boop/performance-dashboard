@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>June Performance Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>JUNE PERFORMANCE</h1>
+
+    <!-- TOP DASHBOARD -->
+    <div class="dashboard-row">
+
+        <!-- RASIKA -->
+        <div class="card" id="rasikaCard">
+
+            <div class="profile">
+                <img src="images/rasika.jpg">
+                <h2>Rasika</h2>
+            </div>
+
+            <div class="stats">
+                <div class="stat green">
+                    <span>Closed Deals</span>
+                    <b id="r_closed">0</b>
+                </div>
+
+                <div class="stat">
+                    <span>Total Deals</span>
+                    <b id="r_total">0</b>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CENTER CHART -->
+        <div class="center-card">
+            <h3>Closed Deals Comparison</h3>
+            <canvas id="teamChart"></canvas>
+        </div>
+
+        <!-- RAMZI -->
+        <div class="card" id="ramziCard">
+
+            <div class="profile">
+                <img src="images/ramzi.jpg">
+                <h2>Ramzi</h2>
+            </div>
+
+            <div class="stats">
+                <div class="stat green">
+                    <span>Closed Deals</span>
+                    <b id="m_closed">0</b>
+                </div>
+
+                <div class="stat">
+                    <span>Total Deals</span>
+                    <b id="m_total">0</b>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- BOTTOM CHARTS -->
+    <div class="bottom-row">
+
+        <div class="chart-card">
+            <h3>Rasika Revenue</h3>
+            <canvas id="chartR"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>Ramzi Revenue</h3>
+            <canvas id="chartM"></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
