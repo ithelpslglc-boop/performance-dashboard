@@ -1,302 +1,1100 @@
-* {
-    box-sizing: border-box;
+/* ==========================================================
+   PERFORMANCE DASHBOARD
+   HORIZONTAL TV MODE
+   50" TV / 1920x1080
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    color: white;
 
-    background: linear-gradient(-45deg, #0b0f17, #111827, #0f172a, #0b1220);
-    background-size: 400% 400%;
-    animation: flow 15s ease infinite;
+html{
 
-    overflow-x: hidden;
+    scroll-behavior:smooth;
+
+    scroll-snap-type:x mandatory;
+
+    overflow-x:auto;
+
 }
 
-@keyframes flow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+
+body{
+
+    font-family:"Segoe UI",Arial,sans-serif;
+
+    color:white;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        -45deg,
+        #0b0f17,
+        #111827,
+        #0f172a,
+        #0b1220
+    );
+
+    background-size:400% 400%;
+
+    animation:backgroundFlow 15s ease infinite;
+
 }
 
-/* =========================
+
+
+@keyframes backgroundFlow{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+
+    50%{
+        background-position:100% 50%;
+    }
+
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+
+
+/* ==========================================================
+   MAIN HORIZONTAL WRAPPER
+========================================================== */
+
+
+.dashboard-wrapper{
+
+    display:flex;
+
+    width:200vw;
+
+    height:100vh;
+
+}
+
+
+
+/* ==========================================================
+   PAGE
+========================================================== */
+
+
+.page{
+
+    width:100vw;
+
+    height:100vh;
+
+    flex-shrink:0;
+
+    scroll-snap-align:start;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:40px 60px;
+
+}
+
+
+
+/* ==========================================================
    CONTAINER
-========================= */
+========================================================== */
 
-.container {
-    max-width: 1750px;
-    margin: auto;
-    padding: 40px 20px;
-    text-align: center;
+
+.container{
+
+    width:100%;
+
+    max-width:1800px;
+
+    text-align:center;
+
 }
 
-h1 {
-    font-size: 60px;
-    margin-bottom: 40px;
+
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+
+h1{
+
+    font-size:68px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    margin:0 0 35px;
+
+    text-transform:uppercase;
+
 }
 
-/* =========================
-   TOP ROW
-========================= */
 
-.dashboard-row {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 45px;
-    margin-bottom: 60px;
+
+h1::after{
+
+    content:"";
+
+    display:block;
+
+    width:220px;
+
+    height:5px;
+
+    margin:20px auto 0;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #00ff99,
+        #3399ff
+    );
+
 }
 
-/* =========================
-   MANAGER CARDS
-========================= */
 
-.card {
-    width: 340px;
-    height: auto;
 
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 28px;
+/* ==========================================================
+   OVERVIEW LAYOUT
+========================================================== */
 
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
 
-    display: flex;
-    flex-direction: column;
+.dashboard-row{
 
-    padding: 22px;
+    display:flex;
 
-    transition: all .35s ease;
+    justify-content:center;
+
+    align-items:center;
+
+    gap:55px;
+
 }
 
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 45px rgba(0,0,0,.45);
-}
 
-/* =========================
-   PROFILE
-========================= */
 
-.profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* ==========================================================
+   MANAGER CARD
+========================================================== */
 
-    gap: 10px;
 
-    margin-top: 8px;
-    margin-bottom: 18px;
-}
+.card{
 
-.profile img {
-    width: 240px;
-    height: 240px;
+    width:340px;
 
-    object-fit: cover;
-    border-radius: 26px;
+    background:
+    rgba(255,255,255,.06);
 
-    border: 3px solid rgba(255,255,255,.25);
 
-    box-shadow: 0 20px 60px rgba(0,0,0,.6);
-}
+    border:
 
-.profile h2 {
-    margin: 0;
-    font-size: 34px;
-    font-weight: 900;
-}
+    1px solid rgba(255,255,255,.10);
 
-/* =========================
-   KPI BOXES
-========================= */
 
-.stats {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    border-radius:30px;
 
-    margin-top: 18px;
-}
 
-.stat {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    backdrop-filter:blur(18px);
 
-    padding: 14px 16px;
 
-    border-radius: 14px;
+    -webkit-backdrop-filter:blur(18px);
 
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.08);
-}
-
-.stat.green {
-    background: rgba(0,255,153,.12);
-    border: 1px solid rgba(0,255,153,.35);
-}
-
-.stat span {
-    font-size: 14px;
-    opacity: .75;
-}
-
-.stat b {
-    font-size: 22px;
-    font-weight: 900;
-}
-
-/* =========================
-   TEAM COMPARISON
-========================= */
-
-.center-card {
-
-    width: 700px;
-
-    padding: 28px;
-
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.08);
-
-    border-radius: 28px;
-
-    backdrop-filter: blur(14px);
-
-    -webkit-backdrop-filter: blur(14px);
-
-    box-shadow: 0 10px 30px rgba(0,0,0,.35);
-
-    transition: .35s;
-}
-
-.center-card:hover {
-
-    transform: translateY(-4px);
-
-    box-shadow: 0 18px 45px rgba(0,0,0,.45);
-}
-
-.center-card h3 {
-
-    font-size: 28px;
-
-    margin: 0 0 20px;
-
-    font-weight: 700;
-}
-
-.center-card h3::after {
-
-    content: "";
-
-    display: block;
-
-    width: 70px;
-
-    height: 3px;
-
-    margin: 10px auto 0;
-
-    border-radius: 5px;
-
-    background: linear-gradient(90deg,#00ff99,#3399ff);
-}
-
-/* =========================
-   BOTTOM CHARTS
-========================= */
-
-.bottom-row {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: flex-start;
-
-    gap: 50px;
-
-    margin-top: 60px;
-
-    flex-wrap: wrap;
-}
-
-.chart-card {
-
-    width: 700px;
-
-    min-height: 440px;
-
-    padding: 28px;
-
-    background: rgba(255,255,255,.06);
-
-    border: 1px solid rgba(255,255,255,.08);
-
-    border-radius: 28px;
-
-    backdrop-filter: blur(14px);
-
-    -webkit-backdrop-filter: blur(14px);
-
-    box-shadow: 0 10px 30px rgba(0,0,0,.35);
-
-    transition: .35s;
-}
-
-.chart-card:hover {
-
-    transform: translateY(-4px);
-
-    box-shadow: 0 18px 45px rgba(0,0,0,.45);
-}
-
-.chart-card h3 {
-
-    font-size: 26px;
-
-    font-weight: 700;
-
-    margin: 0 0 20px;
-}
-
-.chart-card h3::after {
-
-    content: "";
-
-    display: block;
-
-    width: 60px;
-
-    height: 3px;
-
-    margin: 10px auto 0;
-
-    border-radius: 5px;
-
-    background: linear-gradient(90deg,#00ff99,#3399ff);
-}
-
-.chart-card canvas {
-
-    width: 100% !important;
-
-    height: 360px !important;
-}
-
-/* =========================
-   WINNER CARD
-========================= */
-
-.card.winner {
-
-    border: 2px solid #00ff99;
 
     box-shadow:
-        0 0 15px rgba(0,255,153,.25),
-        0 0 35px rgba(0,255,153,.15);
+
+    0 18px 45px rgba(0,0,0,.35);
+
+
+    overflow:hidden;
+
+
+    transition:.35s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+/* ==========================================================
+   MANAGER COLOR THEMES
+========================================================== */
+
+
+/* =========================
+   RASIKA CARD - GREEN
+========================== */
+
+#rasikaCard{
+
+    border:1px solid rgba(0,255,153,.45);
+
+    background:
+
+    linear-gradient(
+        145deg,
+        rgba(0,255,153,.18),
+        rgba(255,255,255,.06)
+    );
+
+
+    box-shadow:
+
+    0 18px 45px rgba(0,255,153,.18);
+
+}
+
+
+
+#rasikaCard:hover{
+
+    box-shadow:
+
+    0 25px 70px rgba(0,255,153,.35);
+
+}
+
+
+
+/* =========================
+   RAMZI CARD - BLUE
+========================== */
+
+
+#ramziCard{
+
+    border:1px solid rgba(51,153,255,.45);
+
+
+    background:
+
+    linear-gradient(
+        145deg,
+        rgba(51,153,255,.18),
+        rgba(255,255,255,.06)
+    );
+
+
+    box-shadow:
+
+    0 18px 45px rgba(51,153,255,.18);
+
+}
+
+
+
+#ramziCard:hover{
+
+    box-shadow:
+
+    0 25px 70px rgba(51,153,255,.35);
+
+}
+
+
+
+
+
+/* ==========================================================
+   KPI COLOR BLOCKS
+========================================================== */
+
+
+/* Rasika closed deals */
+
+#rasikaCard .stat.green{
+
+    background:
+
+    rgba(0,255,153,.22);
+
+
+    border:
+
+    1px solid rgba(0,255,153,.45);
+
+}
+
+
+
+/* Ramzi closed deals */
+
+#ramziCard .stat.green{
+
+    background:
+
+    rgba(51,153,255,.22);
+
+
+    border:
+
+    1px solid rgba(51,153,255,.45);
+
+}
+
+
+
+
+
+/* ==========================================================
+   PROFILE IMAGE GLOW
+========================================================== */
+
+
+/* Rasika image */
+
+#rasikaCard .profile img{
+
+    border-color:#00ff99;
+
+    box-shadow:
+
+    0 20px 60px rgba(0,255,153,.35);
+
+}
+
+
+
+/* Ramzi image */
+
+#ramziCard .profile img{
+
+    border-color:#3399ff;
+
+    box-shadow:
+
+    0 20px 60px rgba(51,153,255,.35);
+
+}
+
+
+
+
+/* ==========================================================
+   NAME COLORS
+========================================================== */
+
+
+#rasikaCard .profile h2{
+
+    color:#00ff99;
+
+}
+
+
+
+#ramziCard .profile h2{
+
+    color:#3399ff;
+
+}
+
+/* ==========================================================
+   PROFILE
+========================================================== */
+
+
+.profile{
+
+    padding:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+
+.profile img{
+
+    width:250px;
+
+    height:250px;
+
+
+    object-fit:cover;
+
+
+    border-radius:30px;
+
+
+    border:
+
+    4px solid rgba(255,255,255,.25);
+
+
+    box-shadow:
+
+    0 20px 55px rgba(0,0,0,.55);
+
+}
+
+
+
+.profile h2{
+
+    margin-top:20px;
+
+    font-size:40px;
+
+    font-weight:900;
+
+}
+
+
+
+/* ==========================================================
+   STATS
+========================================================== */
+
+
+.stats{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    padding:
+
+    0 20px 20px;
+
+}
+
+
+
+.stat{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    padding:18px 22px;
+
+
+    border-radius:18px;
+
+
+    background:
+
+    rgba(255,255,255,.05);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+}
+
+
+
+.stat.green{
+
+
+    background:
+
+    rgba(0,255,153,.15);
+
+
+    border:
+
+    1px solid rgba(0,255,153,.35);
+
+}
+
+
+
+.stat span{
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+
+
+.stat b{
+
+    font-size:30px;
+
+    font-weight:900;
+
+}
+
+/* ==========================================================
+   WINNER HIGHLIGHT
+========================================================== */
+
+.card.winner{
+
+    border:2px solid #00ff99;
+
+    box-shadow:
+
+    0 0 20px rgba(0,255,153,.35),
+
+    0 0 60px rgba(0,255,153,.20);
+
+}
+
+
+
+/* ==========================================================
+   TEAM COMPARISON CARD
+========================================================== */
+
+
+.center-card{
+
+    width:760px;
+
+
+    min-height:560px;
+
+
+    padding:32px;
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+
+
+    background:
+
+    rgba(255,255,255,.06);
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,.10);
+
+
+
+    border-radius:30px;
+
+
+
+    backdrop-filter:blur(18px);
+
+
+    -webkit-backdrop-filter:blur(18px);
+
+
+
+    box-shadow:
+
+    0 18px 45px rgba(0,0,0,.35);
+
+
+
+    transition:.35s;
+
+}
+
+
+
+.center-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+
+
+.center-card h3{
+
+
+    font-size:32px;
+
+
+    font-weight:800;
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+.center-card h3::after{
+
+
+    content:"";
+
+
+    display:block;
+
+
+    width:90px;
+
+
+    height:4px;
+
+
+    margin:15px auto 0;
+
+
+    border-radius:20px;
+
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #00ff99,
+        #3399ff
+    );
+
+
+}
+
+
+
+.center-card canvas{
+
+
+    width:100% !important;
+
+
+    height:430px !important;
+
+
+}
+
+
+
+
+
+/* ==========================================================
+   SECOND PAGE CHART AREA
+========================================================== */
+
+
+.charts-page{
+
+    justify-content:center;
+
+}
+
+
+
+.bottom-row{
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    gap:60px;
+
+
+}
+
+
+
+/* ==========================================================
+   CHART CARDS
+========================================================== */
+
+
+.chart-card{
+
+
+    width:720px;
+
+
+    min-height:520px;
+
+
+
+    padding:30px;
+
+
+
+    background:
+
+
+    rgba(255,255,255,.06);
+
+
+
+    border:
+
+
+    1px solid rgba(255,255,255,.10);
+
+
+
+    border-radius:30px;
+
+
+
+    backdrop-filter:blur(18px);
+
+
+
+    -webkit-backdrop-filter:blur(18px);
+
+
+
+    box-shadow:
+
+
+    0 18px 45px rgba(0,0,0,.35);
+
+
+
+    transition:.35s;
+
+}
+
+
+
+.chart-card:hover{
+
+
+    transform:translateY(-6px);
+
+
+}
+
+
+
+.chart-card h3{
+
+
+    font-size:30px;
+
+
+    font-weight:800;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+.chart-card h3::after{
+
+
+    content:"";
+
+
+    display:block;
+
+
+    width:80px;
+
+
+    height:4px;
+
+
+    margin:12px auto 0;
+
+
+    border-radius:20px;
+
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #00ff99,
+        #3399ff
+    );
+
+
+}
+
+
+
+.chart-card canvas{
+
+
+    width:100% !important;
+
+
+    height:400px !important;
+
+
+}
+
+
+
+
+
+/* ==========================================================
+   HIDE SCROLLBAR
+   TV CLEAN LOOK
+========================================================== */
+
+
+::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+
+
+/* ==========================================================
+   TV RESPONSIVE SUPPORT
+========================================================== */
+
+
+@media(max-width:1700px){
+
+
+    .dashboard-row{
+
+        gap:35px;
+
+    }
+
+
+    .center-card{
+
+        width:700px;
+
+    }
+
+
+    .chart-card{
+
+        width:680px;
+
+    }
+
+}
+
+
+
+@media(max-width:1400px){
+
+
+    .dashboard-row{
+
+        transform:scale(.85);
+
+    }
+
+
+    .bottom-row{
+
+        transform:scale(.85);
+
+    }
+
+}
+
+
+
+@media(max-width:900px){
+
+
+    html{
+
+        scroll-snap-type:y mandatory;
+
+    }
+
+
+    .dashboard-wrapper{
+
+        width:100%;
+
+        height:auto;
+
+        display:block;
+
+    }
+
+
+    .page{
+
+        width:100%;
+
+        height:auto;
+
+        min-height:100vh;
+
+    }
+
+
+    .dashboard-row,
+
+    .bottom-row{
+
+        flex-direction:column;
+
+    }
+
+
+    h1{
+
+        font-size:42px;
+
+    }
+
+
+    .card,
+
+    .center-card,
+
+    .chart-card{
+
+        width:100%;
+
+    }
+
+}
+
+.dashboard-wrapper{
+
+    display:flex;
+
+    width:200vw;
+
+    height:100vh;
+
+    transition:transform .7s ease;
+
+}
+
+/* ==========================================================
+   MANAGER CARD SPLIT DESIGN
+========================================================== */
+
+
+/* Divider after name */
+
+.profile{
+
+    border-bottom:
+
+    1px solid rgba(255,255,255,.15);
+
+    padding-bottom:25px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+/* KPI AREA */
+
+.stats{
+
+    padding:
+
+    0 25px 25px;
+
+}
+
+
+
+/* Bigger KPI boxes */
+
+.stat{
+
+    min-height:75px;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:6px;
+
+    text-align:center;
+
+}
+
+
+
+/* KPI label */
+
+.stat span{
+
+    font-size:15px;
+
+    opacity:.75;
+
+}
+
+
+
+/* KPI number */
+
+.stat b{
+
+    font-size:34px;
+
+}
+
+
+
+/* Give KPI section more depth */
+
+#rasikaCard .stats{
+
+    background:
+
+    rgba(0,255,153,.04);
+
+}
+
+
+#ramziCard .stats{
+
+    background:
+
+    rgba(51,153,255,.04);
+
 }

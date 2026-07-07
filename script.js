@@ -43,11 +43,15 @@ async function loadData() {
     const r = data.rasika.closed || 0;
     const m = data.ramzi.closed || 0;
 
-    document.getElementById("r_closed").innerText = r;
-    document.getElementById("r_total").innerText = data.rasika.total;
+    document.getElementById("r_closed").innerText = Number(r).toLocaleString();
 
-    document.getElementById("m_closed").innerText = m;
-    document.getElementById("m_total").innerText = data.ramzi.total;
+document.getElementById("m_closed").innerText = Number(m).toLocaleString();
+
+document.getElementById("r_total").innerText =
+    Number(data.rasika.total).toLocaleString();
+
+document.getElementById("m_total").innerText =
+    Number(data.ramzi.total).toLocaleString();
 
     teamChart.data.datasets[0].data = [r, m];
     teamChart.update();
@@ -73,3 +77,125 @@ async function loadData() {
 
 loadData();
 setInterval(loadData, 60000);
+
+// =====================================================
+// HORIZONTAL PAGE SWIPE CONTROL
+// =====================================================
+
+const dashboard = document.querySelector(".dashboard-wrapper");
+
+let currentPage = 0;
+let isScrolling = false;
+
+
+// Mouse wheel → horizontal movement
+window.addEventListener("wheel", function(e){
+
+    if(isScrolling) return;
+
+    e.preventDefault();
+
+    if(e.deltaY > 0 || e.deltaX > 0){
+
+        currentPage = Math.min(currentPage + 1, 1);
+
+    } 
+    else if(e.deltaY < 0 || e.deltaX < 0){
+
+        currentPage = Math.max(currentPage - 1, 0);
+
+    }
+
+
+    movePage();
+
+}, {passive:false});
+
+
+
+// Touch swipe support
+let startX = 0;
+
+
+window.addEventListener("touchstart", function(e){
+
+    startX = e.touches[0].clientX;
+
+});
+
+
+window.addEventListener("touchend", function(e){
+
+    let endX = e.changedTouches[0].clientX;
+
+    let distance = startX - endX;
+
+
+    if(Math.abs(distance) > 80){
+
+
+        if(distance > 0){
+
+            currentPage = Math.min(currentPage + 1,1);
+
+        }else{
+
+            currentPage = Math.max(currentPage - 1,0);
+
+        }
+
+
+        movePage();
+
+    }
+
+});
+
+
+
+// Move between screens
+
+function movePage(){
+
+    isScrolling = true;
+
+
+    dashboard.style.transform =
+        `translateX(-${currentPage * 100}vw)`;
+
+
+    dashboard.style.transition =
+        "transform .7s ease";
+
+
+    setTimeout(()=>{
+
+        isScrolling = false;
+
+    },700);
+
+}
+
+// =====================================================
+// AUTO PAGE SLIDE LOOP (EVERY 8 SECONDS)
+// =====================================================
+
+let autoPage = 0;
+
+function autoSlide(){
+
+    autoPage++;
+
+    if(autoPage > 1){
+        autoPage = 0;
+    }
+
+    dashboard.style.transform =
+        `translateX(-${autoPage * 100}vw)`;
+
+}
+
+
+// Start automatic slideshow
+
+setInterval(autoSlide, 8000);

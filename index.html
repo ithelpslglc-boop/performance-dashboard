@@ -1,91 +1,272 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>June Performance Dashboard</title>
 
     <link rel="stylesheet" href="style.css">
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
+
 
 <body>
 
-<div class="container">
 
-    <h1>JUNE PERFORMANCE</h1>
+<div class="dashboard-wrapper">
 
-    <!-- TOP DASHBOARD -->
-    <div class="dashboard-row">
 
-        <!-- RASIKA -->
-        <div class="card" id="rasikaCard">
+    <!-- =====================================================
+         PAGE 1 : OVERVIEW
+    ====================================================== -->
 
-            <div class="profile">
-                <img src="images/rasika.jpg">
-                <h2>Rasika</h2>
-            </div>
+    <section class="page overview-page">
 
-            <div class="stats">
-                <div class="stat green">
-                    <span>Closed Deals</span>
-                    <b id="r_closed">0</b>
+
+        <div class="container">
+
+
+            <h1>
+                JUNE PERFORMANCE DASHBOARD
+            </h1>
+
+
+
+            <div class="dashboard-row">
+
+
+
+                <!-- =========================
+                     RASIKA CARD
+                ========================== -->
+
+                <div class="card" id="rasikaCard">
+
+
+                    <div class="profile">
+
+                        <img src="images/rasika.jpg" alt="Rasika">
+
+                        <h2>Rasika</h2>
+
+                    </div>
+
+
+
+                    <div class="stats">
+
+
+                        <div class="stat green">
+
+                            <span>Total Revenue</span>
+
+                            <b id="r_closed">0</b>
+
+                        </div>
+
+
+
+                        <div class="stat">
+
+                            <span>Total Deals</span>
+
+                            <b id="r_total">0</b>
+
+                        </div>
+
+
+                    </div>
+
+
                 </div>
 
-                <div class="stat">
-                    <span>Total Deals</span>
-                    <b id="r_total">0</b>
-                </div>
-            </div>
 
-        </div>
 
-        <!-- CENTER CHART -->
-        <div class="center-card">
-            <h3>Closed Deals Comparison</h3>
-            <canvas id="teamChart"></canvas>
-        </div>
 
-        <!-- RAMZI -->
-        <div class="card" id="ramziCard">
 
-            <div class="profile">
-                <img src="images/ramzi.jpg">
-                <h2>Ramzi</h2>
-            </div>
+                <!-- =========================
+                     TEAM COMPARISON
+                ========================== -->
 
-            <div class="stats">
-                <div class="stat green">
-                    <span>Closed Deals</span>
-                    <b id="m_closed">0</b>
+
+                <div class="center-card">
+
+
+                    <h3>
+                        Closed Deals Comparison
+                    </h3>
+
+
+                    <canvas id="teamChart"></canvas>
+
+
                 </div>
 
-                <div class="stat">
-                    <span>Total Deals</span>
-                    <b id="m_total">0</b>
+
+
+
+
+                <!-- =========================
+                     RAMZI CARD
+                ========================== -->
+
+
+                <div class="card" id="ramziCard">
+
+
+                    <div class="profile">
+
+
+                        <img src="images/ramzi.jpg" alt="Ramzi">
+
+
+                        <h2>Ramzi</h2>
+
+
+                    </div>
+
+
+
+
+                    <div class="stats">
+
+
+                        <div class="stat green">
+
+
+                            <span>Total Revenue</span>
+
+                            <b id="m_closed">0</b>
+
+
+                        </div>
+
+
+
+
+                        <div class="stat">
+
+
+                            <span>Total Deals</span>
+
+                            <b id="m_total">0</b>
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
                 </div>
+
+
+
+
             </div>
 
+
         </div>
 
-    </div>
 
-    <!-- BOTTOM CHARTS -->
-    <div class="bottom-row">
+    </section>
 
-        <div class="chart-card">
-            <h3>Rasika Revenue</h3>
-            <canvas id="chartR"></canvas>
+
+
+
+
+    <!-- =====================================================
+         PAGE 2 : TEAM CHARTS
+    ====================================================== -->
+
+
+    <section class="page charts-page">
+
+
+        <div class="container">
+
+
+
+            <h1>
+                TEAM PERFORMANCE
+            </h1>
+
+
+
+
+            <div class="bottom-row">
+
+
+
+                <!-- RASIKA CHART -->
+
+                <div class="chart-card">
+
+
+                    <h3>
+                        Team Rasika Revenue
+                    </h3>
+
+
+                    <canvas id="chartR"></canvas>
+
+
+
+                </div>
+
+
+
+
+
+                <!-- RAMZI CHART -->
+
+
+                <div class="chart-card">
+
+
+                    <h3>
+                        Team Ramzi Revenue
+                    </h3>
+
+
+                    <canvas id="chartM"></canvas>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
         </div>
 
-        <div class="chart-card">
-            <h3>Ramzi Revenue</h3>
-            <canvas id="chartM"></canvas>
-        </div>
 
-    </div>
+
+    </section>
+
+
+
 
 </div>
 
+
+
 <script src="script.js"></script>
+
+
 </body>
+
+
 </html>
