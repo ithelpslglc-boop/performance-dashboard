@@ -1,0 +1,146 @@
+* {
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+
+}
+
+
+
+body {
+
+    height:100vh;
+
+    background:#121212;
+
+    padding:20px;
+
+    overflow:hidden;
+
+}
+
+
+
+
+/* Main Dashboard */
+
+.dashboard {
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+/* Top Title Card */
+
+.title-card {
+
+    height:120px;
+
+    background:#3a3a3a;
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    font-size:42px;
+
+    font-weight:bold;
+
+}
+
+
+
+/* Bottom 3 Card Area */
+
+.content {
+
+    flex:1;
+
+    display:grid;
+
+    grid-template-columns:1fr 1.5fr 1fr;
+
+    gap:20px;
+
+}
+
+
+
+
+/* Common Card Style */
+
+.card {
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+/* Left Card */
+
+.left-card {
+
+    background:#555555;
+
+}
+
+
+
+/* Chart Card */
+
+.chart-card {
+
+    background:#777777;
+
+}
+
+
+
+/* Right Card */
+
+.right-card {
+
+    background:#999999;
+
+}
+
+
+
+/* Inner Content */
+
+.name-card,
+.chart-container {
+
+    text-align:center;
+
+}
