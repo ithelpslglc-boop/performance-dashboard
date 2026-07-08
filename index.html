@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Performance Dashboard</title>
+
+<link rel="icon" type="image/png" href="images/performance.png">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+body {
+    height: 100vh;
+    background: #111;
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+/* Main container */
+.dashboard {
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+
+/* Top title card */
+.title-card {
+
+    height: 120px;
+    background: #ff4757;
+
+    border-radius: 20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-size:42px;
+    font-weight:bold;
+
+}
+
+
+
+/* Bottom section */
+.content {
+
+    flex:1;
+
+    display:grid;
+
+    grid-template-columns: 1fr 1.5fr 1fr;
+
+    gap:20px;
+
+}
+
+
+/* Common card style */
+.card {
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+}
+
+
+/* Different colors */
+
+.left-card {
+
+    background:#1e90ff;
+
+}
+
+
+.chart-card {
+
+    background:#2ed573;
+
+}
+
+
+.right-card {
+
+    background:#ffa502;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+    <!-- Title -->
+    <div class="title-card">
+
+        Performance Dashboard
+
+    </div>
+
+
+
+    <!-- Three cards -->
+
+    <div class="content">
+
+
+        <div class="card left-card">
+
+            Name Card 01
+
+        </div>
+
+
+        <div class="card chart-card">
+
+            Bar Chart
+
+        </div>
+
+
+        <div class="card right-card">
+
+            Name Card 02
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+</body>
+</html>
