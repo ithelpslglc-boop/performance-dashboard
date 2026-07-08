@@ -2,269 +2,905 @@
    RESET
 ========================================================== */
 
+
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
 }
+
+
 
 html,
 body{
 
     width:100%;
+
     height:100%;
 
 }
 
+
+
 body{
 
-    font-family:Arial, Helvetica, sans-serif;
 
-    background:#202020;
+    font-family:
 
-    color:#ffffff;
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle at top,
+
+        #303030,
+
+        #080808
+
+    );
+
+
+
+    color:white;
+
 
     padding:20px;
 
+
     overflow:hidden;
 
+
 }
+
+
+
+
 
 
 /* ==========================================================
    DASHBOARD
 ========================================================== */
 
+
 .dashboard{
 
+
     width:100%;
+
+
     height:100%;
+
 
     display:flex;
 
+
     flex-direction:column;
+
 
     gap:20px;
 
+
 }
+
+
+
+
+
 
 
 /* ==========================================================
    TITLE CARD
 ========================================================== */
 
+
 .title-card{
+
 
     height:110px;
 
-    background:#3d3d3d;
 
-    border-radius:20px;
+    border-radius:30px;
+
+
 
     display:flex;
 
+
     justify-content:center;
+
 
     align-items:center;
 
-    flex-shrink:0;
+
+
+
+
+    background:
+
+
+    rgba(255,255,255,0.08);
+
+
+
+
+
+    backdrop-filter:
+
+
+    blur(25px);
+
+
+
+
+
+    border:
+
+
+    1px solid rgba(255,255,255,0.2);
+
+
+
+
+
+    box-shadow:
+
+
+    0 20px 60px rgba(0,0,0,0.7);
+
+
 
 }
+
+
+
+
+
+
+.title-content{
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+}
+
+
+
+
 
 .title-card h1{
 
-    font-size:42px;
 
-    font-weight:700;
+    font-size:44px;
 
-    letter-spacing:1px;
 
-    color:#ffffff;
+    font-weight:900;
+
+
+    letter-spacing:4px;
+
+
+    text-align:center;
+
 
 }
+
+
+
+
+
+
+
 
 
 /* ==========================================================
    MAIN CONTENT
 ========================================================== */
 
+
 .content{
 
+
     flex:1;
+
 
     display:grid;
 
-    grid-template-columns:0.85fr 2.3fr 0.85fr;
+
+
+    grid-template-columns:
+
+
+    0.85fr 2.3fr 0.85fr;
+
+
 
     gap:20px;
+
+
 
 }
 
 
+
+
+
+
+
+
+
 /* ==========================================================
-   EMPLOYEE CARD
+   EMPLOYEE CARDS
 ========================================================== */
+
 
 .employee-card{
 
-    background:#505050;
 
-    border-radius:20px;
+    padding:25px;
 
-    padding:20px;
+
+    border-radius:35px;
+
+
 
     display:flex;
 
+
     flex-direction:column;
+
 
     gap:20px;
 
+
+
+
+
+    backdrop-filter:
+
+
+    blur(25px);
+
+
+
+
+
+    box-shadow:
+
+
+    0 30px 70px rgba(0,0,0,0.7);
+
+
+
+
+
+    transition:0.4s;
+
+
 }
 
 
+
+
+
+.employee-card:hover{
+
+
+    transform:translateY(-8px);
+
+
+}
+
+
+
+
+
+
+
+
+
 /* ==========================================================
-   PROFILE SECTION
+   RASIKA CARD
 ========================================================== */
+
+
+.rasika-card{
+
+
+    background:
+
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(0,255,153,0.25),
+
+        rgba(0,70,45,0.45)
+
+    );
+
+
+
+
+    border:
+
+
+    2px solid rgba(0,255,153,0.7);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   RAMZI CARD
+========================================================== */
+
+
+.ramzi-card{
+
+
+    background:
+
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(51,153,255,0.25),
+
+        rgba(0,40,100,0.5)
+
+    );
+
+
+
+
+    border:
+
+
+    2px solid rgba(51,153,255,0.8);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   PROFILE IMAGE
+========================================================== */
+
 
 .profile-section{
 
+
     flex:1;
+
 
     display:flex;
 
+
     justify-content:center;
 
+
     align-items:center;
+
+
 
 }
 
 
-/* ==========================================================
-   PROFILE IMAGE (PNG)
-========================================================== */
+
+
 
 .profile-image{
 
+
     width:100%;
 
-    max-width:300px;
 
-    aspect-ratio:1/1;
+    max-width:320px;
+
+
+    aspect-ratio:1;
+
 
     object-fit:contain;
 
-    border-radius:20px;
 
-    border:4px solid #8d8d8d;
 
-    background:#5f5f5f;
 
-    padding:10px;
+    padding:12px;
+
+
+
+
+    border-radius:30px;
+
+
+
+
+    background:
+
+
+    rgba(255,255,255,0.12);
+
+
+
+
+
+    transition:0.4s;
+
+
 
 }
 
 
+
+
+.profile-image:hover{
+
+
+    transform:scale(1.05);
+
+
+}
+
+
+
+
+
+
+
+.rasika-card .profile-image{
+
+
+    border:
+
+
+    5px solid #00ff99;
+
+
+
+
+    box-shadow:
+
+
+    0 0 45px rgba(0,255,153,0.8);
+
+
+
+}
+
+
+
+
+
+
+
+.ramzi-card .profile-image{
+
+
+    border:
+
+
+    5px solid #3399ff;
+
+
+
+
+    box-shadow:
+
+
+    0 0 45px rgba(51,153,255,0.8);
+
+
+
+}
+
+
+
+
+
+
+
+
+
 /* ==========================================================
-   EMPLOYEE NAME
+   NAME CARD
 ========================================================== */
+
 
 .employee-name{
 
-    height:75px;
 
-    background:#666666;
+    height:80px;
 
-    border-radius:15px;
+
+    border-radius:25px;
+
+
 
     display:flex;
 
+
     justify-content:center;
+
 
     align-items:center;
 
-    font-size:32px;
 
-    font-weight:700;
+
+
+
+    font-size:36px;
+
+
+    font-weight:900;
+
+
+
+
+
+    background:
+
+
+    rgba(255,255,255,0.12);
+
+
+
+
+
+    backdrop-filter:
+
+
+    blur(20px);
+
+
 
 }
 
 
+
+
+
+
+
+.rasika-card .employee-name{
+
+
+    color:#00ff99;
+
+
+
+}
+
+
+
+
+.ramzi-card .employee-name{
+
+
+    color:#3399ff;
+
+
+
+}
+
+
+
+
+
+
+
+
+
 /* ==========================================================
-   KPI CARDS
+   STAT CARDS
 ========================================================== */
+
 
 .stat-card{
 
-    height:140px;
 
-    background:#777777;
+    height:150px;
 
-    border-radius:15px;
+
+    border-radius:25px;
+
+
+
+
 
     display:flex;
 
+
     flex-direction:column;
+
 
     justify-content:center;
 
+
     align-items:center;
 
+
+
+
+
+    background:
+
+
+    rgba(255,255,255,0.12);
+
+
+
+
+
+    backdrop-filter:
+
+
+    blur(20px);
+
+
+
+
+
+    border:
+
+
+    1px solid rgba(255,255,255,0.15);
+
+
+
 }
+
+
+
+
+
+
 
 .stat-title{
 
+
     font-size:22px;
 
-    color:#f2f2f2;
 
-    font-weight:500;
+    letter-spacing:1px;
 
-    margin-bottom:10px;
+
+    color:#dddddd;
+
+
 
 }
+
+
+
+
+
+
 
 .stat-value{
 
-    font-size:64px;
 
-    font-weight:700;
+    margin-top:10px;
 
-    line-height:1;
 
-    color:#ffffff;
+    font-size:75px;
+
+
+    font-weight:900;
+
+
 
 }
+
+
+
+
+
+
+
+.rasika-card .stat-value{
+
+
+    color:#00ff99;
+
+
+}
+
+
+
+
+
+
+
+.ramzi-card .stat-value{
+
+
+    color:#3399ff;
+
+
+}
+
+
+
+
+
+
+
 
 
 /* ==========================================================
-   BAR CHART CARD
+   CHART CARD
 ========================================================== */
+
 
 .chart-card{
 
-    background:#686868;
 
-    border-radius:20px;
+    border-radius:35px;
 
-    padding:30px;
 
-    position:relative;
+    padding:35px;
+
+
+
+
+    background:
+
+
+    rgba(255,255,255,0.08);
+
+
+
+
+
+    backdrop-filter:
+
+
+    blur(30px);
+
+
+
+
+
+    border:
+
+
+    1px solid rgba(255,255,255,0.2);
+
+
+
+
+
+    box-shadow:
+
+
+    0 30px 70px rgba(0,0,0,0.7);
+
+
+
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
 
 }
+
+
+
+
+
+
+
+
+/* CHART HEADER */
+
+
+.chart-header{
+
+
+    text-align:center;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.chart-header h2{
+
+
+    font-size:34px;
+
+
+    font-weight:900;
+
+
+}
+
+
+
+
+.chart-header p{
+
+
+    margin-top:5px;
+
+
+    color:#cccccc;
+
+
+    font-size:18px;
+
+
+}
+
+
+
+
+
+
+
+.chart-container{
+
+
+    flex:1;
+
+
+}
+
+
+
 
 
 #revenueChart{
 
-    width:100% !important;
 
-    height:100% !important;
+    width:100%!important;
 
-}
 
-.chart-card h2{
+    height:100%!important;
 
-    font-size:48px;
-
-    font-weight:bold;
 
 }

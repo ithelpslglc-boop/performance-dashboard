@@ -1,21 +1,25 @@
-// ==========================================
+// ==========================================================
 // GOOGLE APPS SCRIPT API URL
-// ==========================================
+// ==========================================================
 
-const API_URL = "https://script.google.com/macros/s/AKfycbz6FxLzFymdvGxZU3jYCf_7vDMNmKMLjUoR-r65vLLohdcIEbFAeoKZDO6n6TgbUcE/exec";
+const API_URL =
+"https://script.google.com/macros/s/AKfycbz6FxLzFymdvGxZU3jYCf_7vDMNmKMLjUoR-r65vLLohdcIEbFAeoKZDO6n6TgbUcE/exec";
 
 
-// ==========================================
-// CHART VARIABLE
-// ==========================================
+
+// ==========================================================
+// GLOBAL CHART VARIABLE
+// ==========================================================
 
 let revenueChart;
 
 
 
-// ==========================================
+
+
+// ==========================================================
 // LOAD DASHBOARD DATA
-// ==========================================
+// ==========================================================
 
 async function loadDashboard(){
 
@@ -30,42 +34,116 @@ async function loadDashboard(){
 
 
 
-        // ===============================
+        console.log("Dashboard Data:", data);
+
+
+
+
+
+
+        // ==================================================
         // RASIKA DATA
-        // ===============================
-
-        document.getElementById("rasika-revenue").textContent =
-            data.rasika.total.toLocaleString();
+        // ==================================================
 
 
-        document.getElementById("rasika-deals").textContent =
-            data.rasika.closed;
+        const rasikaRevenue =
+
+        Number(data.rasika.closed);
 
 
 
+        const rasikaDeals =
 
-        // ===============================
+        Number(data.rasika.total);
+
+
+
+
+
+
+        document.getElementById(
+            "rasika-revenue"
+        ).textContent =
+
+
+        rasikaRevenue.toLocaleString();
+
+
+
+
+
+        document.getElementById(
+            "rasika-deals"
+        ).textContent =
+
+
+        rasikaDeals;
+
+
+
+
+
+
+
+
+
+        // ==================================================
         // RAMZI DATA
-        // ===============================
-
-        document.getElementById("ramzi-revenue").textContent =
-            data.ramzi.total.toLocaleString();
+        // ==================================================
 
 
-        document.getElementById("ramzi-deals").textContent =
-            data.ramzi.closed;
+        const ramziRevenue =
+
+        Number(data.ramzi.closed);
 
 
 
+        const ramziDeals =
 
-        // ===============================
-        // CREATE TOTAL REVENUE CHART
-        // ===============================
+        Number(data.ramzi.total);
+
+
+
+
+
+
+        document.getElementById(
+            "ramzi-revenue"
+        ).textContent =
+
+
+        ramziRevenue.toLocaleString();
+
+
+
+
+
+        document.getElementById(
+            "ramzi-deals"
+        ).textContent =
+
+
+        ramziDeals;
+
+
+
+
+
+
+
+        // ==================================================
+        // CREATE CHART
+        // ==================================================
+
 
         createRevenueChart(
-            data.rasika.total,
-            data.ramzi.total
+
+            rasikaRevenue,
+
+            ramziRevenue
+
         );
+
 
 
     }
@@ -75,8 +153,11 @@ async function loadDashboard(){
 
 
         console.error(
-            "Dashboard loading error:",
+
+            "Dashboard Error:",
+
             error
+
         );
 
 
@@ -89,103 +170,407 @@ async function loadDashboard(){
 
 
 
-// ==========================================
-// RASIKA VS RAMZI BAR CHART
-// ==========================================
+
+
+
+
+// ==========================================================
+// VALUE LABEL PLUGIN
+// ==========================================================
+
+const valueLabelPlugin = {
+
+
+    id:"valueLabel",
+
+
+
+
+    afterDatasetsDraw(chart){
+
+
+        const {
+
+            ctx
+
+        } = chart;
+
+
+
+
+        chart.getDatasetMeta(0)
+        .data
+        .forEach((bar,index)=>{
+
+
+
+            const value =
+
+            chart.data.datasets[0]
+            .data[index];
+
+
+
+
+
+            ctx.save();
+
+
+
+
+            ctx.font =
+
+            "900 26px Segoe UI";
+
+
+
+
+            ctx.fillStyle =
+
+            "#ffffff";
+
+
+
+
+            ctx.textAlign =
+
+            "center";
+
+
+
+
+
+            ctx.fillText(
+
+
+                value.toLocaleString(),
+
+
+                bar.x,
+
+
+                bar.y - 20
+
+
+
+            );
+
+
+
+
+            ctx.restore();
+
+
+
+        });
+
+
+
+    }
+
+
+
+};
+
+
+
+
+
+
+
+
+
+// ==========================================================
+// CREATE REVENUE BAR CHART
+// ==========================================================
 
 function createRevenueChart(
-    rasikaTotal,
-    ramziTotal
+
+    rasikaRevenue,
+
+    ramziRevenue
+
 ){
 
 
-    const ctx = document.getElementById(
+
+    const canvas =
+
+    document.getElementById(
         "revenueChart"
     );
 
 
 
-    if(revenueChart){
 
-        revenueChart.destroy();
+    if(!canvas){
+
+        console.error(
+            "Chart canvas not found"
+        );
+
+        return;
 
     }
 
 
 
 
+
+
+    if(revenueChart){
+
+
+        revenueChart.destroy();
+
+
+    }
+
+
+
+
+
+
     revenueChart = new Chart(
-        ctx,
+
+        canvas,
+
         {
 
 
             type:"bar",
 
 
+
+
+
+
             data:{
+
 
 
                 labels:[
 
+
                     "Rasika",
 
+
                     "Ramzi"
+
 
                 ],
 
 
+
+
+
+
                 datasets:[
+
+
 
                     {
 
-                        label:"Total Revenue",
+
+                        label:
+                        "Total Revenue",
+
+
+
 
 
                         data:[
 
-                            rasikaTotal,
 
-                            ramziTotal
+                            rasikaRevenue,
+
+
+                            ramziRevenue
+
 
                         ],
 
 
-                        borderRadius:20,
+
+
+
 
 
                         backgroundColor:[
 
-                            "#9b9b9b",
 
-                            "#d5d5d5"
+                            "rgba(0,255,153,0.85)",
 
-                        ]
+
+                            "rgba(51,153,255,0.85)"
+
+
+                        ],
+
+
+
+
+
+
+                        borderColor:[
+
+
+                            "#00ff99",
+
+
+                            "#3399ff"
+
+
+                        ],
+
+
+
+
+
+
+                        borderWidth:4,
+
+
+
+
+
+
+                        borderRadius:30,
+
+
+
+
+
+                        barPercentage:0.85,
+
+
+
+                        categoryPercentage:0.85
+
+
+
 
                     }
 
+
+
                 ]
 
+
+
             },
+
+
+
+
+
+
 
 
 
             options:{
 
 
+
+
+
                 responsive:true,
+
 
 
                 maintainAspectRatio:false,
 
 
 
+
+
+
+
+                animation:{
+
+
+                    duration:1500,
+
+
+                    easing:"easeOutQuart"
+
+
+                },
+
+
+
+
+
+
+
                 plugins:{
+
+
+
 
 
                     legend:{
 
 
                         display:false
+
+
+                    },
+
+
+
+
+
+
+                    tooltip:{
+
+
+
+                        backgroundColor:
+
+
+                        "rgba(0,0,0,0.9)",
+
+
+
+
+                        padding:15,
+
+
+
+                        cornerRadius:15,
+
+
+
+
+
+
+                        callbacks:{
+
+
+
+                            label:function(context){
+
+
+
+                                return (
+
+                                    "Revenue : " +
+
+                                    Number(
+                                        context.raw
+                                    )
+                                    .toLocaleString()
+
+
+                                );
+
+
+                            }
+
+
+                        }
+
 
 
                     }
@@ -196,68 +581,142 @@ function createRevenueChart(
 
 
 
+
+
+
+
+
+
                 scales:{
+
+
+
 
 
                     x:{
 
 
+
+                        grid:{
+
+
+                            display:false
+
+
+                        },
+
+
+
+
+
+
                         ticks:{
+
 
 
                             color:"#ffffff",
 
+
+
                             font:{
 
 
-                                size:24,
+                                size:28,
 
-                                weight:"bold"
+
+                                weight:"900"
+
 
                             }
 
 
+
                         }
+
+
 
 
                     },
 
 
 
+
+
+
+
+
+
                     y:{
+
 
 
                         beginAtZero:true,
 
 
+
+
+
+
+
+                        grid:{
+
+
+
+                            color:
+
+
+                            "rgba(255,255,255,0.15)"
+
+
+
+                        },
+
+
+
+
+
+
                         ticks:{
 
 
-                            color:"#ffffff",
 
-                            font:{
+                            color:"#ffffff"
 
-
-                                size:20
-
-                            }
 
 
                         }
 
 
+
                     }
+
+
+
 
 
                 }
 
 
 
-            }
+
+            },
+
+
+
+
+
+
+            plugins:[
+
+                valueLabelPlugin
+
+            ]
 
 
 
         }
+
+
 
     );
 
@@ -269,8 +728,26 @@ function createRevenueChart(
 
 
 
-// ==========================================
+
+
+
+
+// ==========================================================
 // START
-// ==========================================
+// ==========================================================
 
 loadDashboard();
+
+
+
+
+
+// Refresh every 5 minutes
+
+setInterval(
+
+    loadDashboard,
+
+    300000
+
+);
