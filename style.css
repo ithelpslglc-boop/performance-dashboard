@@ -21,6 +21,7 @@
 }
 
 
+
 html,
 body{
 
@@ -32,9 +33,12 @@ body{
 
 
 
+
+
 /* ==========================================================
    BODY
 ========================================================== */
+
 
 body{
 
@@ -53,6 +57,7 @@ body{
 
 
     background:
+
 
 
         radial-gradient(
@@ -114,7 +119,7 @@ body{
 
 
 /* ==========================================================
-   AMBIENT BACKGROUND EFFECT
+   AMBIENT LIGHT EFFECT
 ========================================================== */
 
 
@@ -165,6 +170,7 @@ body::before{
 
     animation:
 
+
         ambientMove 18s ease-in-out infinite alternate;
 
 
@@ -173,7 +179,6 @@ body::before{
 
 
 }
-
 
 
 
@@ -227,6 +232,7 @@ body::after{
     }
 
 
+
     to{
 
 
@@ -239,6 +245,9 @@ body::after{
 
 
 }
+
+
+
 
 
 
@@ -262,11 +271,12 @@ body::after{
     display:flex;
 
 
+
     flex-direction:column;
 
 
 
-    gap:22px;
+    gap:20px;
 
 
 }
@@ -279,13 +289,14 @@ body::after{
 .title-card{
 
 
-    height:105px;
-
-
-    border-radius:28px;
+    height:90px;
 
 
     flex-shrink:0;
+
+
+
+    border-radius:28px;
 
 
 
@@ -306,7 +317,9 @@ body::after{
 
 
 
+
     background:
+
 
 
         linear-gradient(
@@ -321,20 +334,28 @@ body::after{
 
 
 
-    backdrop-filter:blur(30px);
+
+    backdrop-filter:
+
+        blur(30px);
+
 
 
 
     border:
 
+
         1px solid rgba(255,255,255,.15);
+
 
 
 
     box-shadow:
 
 
+
         0 25px 60px rgba(0,0,0,.45),
+
 
 
         inset 0 1px rgba(255,255,255,.15);
@@ -345,22 +366,28 @@ body::after{
 
 
 
+
 .title-card::before{
 
 
     content:"";
 
 
+
     position:absolute;
+
 
 
     width:220px;
 
 
+
     height:220px;
 
 
+
     left:-90px;
+
 
 
     top:-120px;
@@ -373,14 +400,18 @@ body::after{
 
     background:
 
+
         rgba(0,255,153,.12);
 
 
 
-    filter:blur(60px);
+    filter:
+
+        blur(60px);
 
 
 }
+
 
 
 
@@ -391,16 +422,21 @@ body::after{
     content:"";
 
 
+
     position:absolute;
+
 
 
     width:220px;
 
 
+
     height:220px;
 
 
+
     right:-90px;
+
 
 
     bottom:-120px;
@@ -413,11 +449,14 @@ body::after{
 
     background:
 
+
         rgba(51,153,255,.12);
 
 
 
-    filter:blur(60px);
+    filter:
+
+        blur(60px);
 
 
 }
@@ -438,6 +477,7 @@ body::after{
     font-size:42px;
 
 
+
     font-weight:900;
 
 
@@ -456,6 +496,9 @@ body::after{
 
 
 
+
+
+
 /* ==========================================================
    MAIN CONTENT
 ========================================================== */
@@ -464,7 +507,9 @@ body::after{
 .content{
 
 
-    flex:1;
+    height:
+
+        calc(100vh - 150px);
 
 
 
@@ -479,10 +524,17 @@ body::after{
 
 
 
-    gap:22px;
+    gap:20px;
+
+
+
+    padding-bottom:20px;
 
 
 }
+
+
+
 
 
 
@@ -507,15 +559,16 @@ body::after{
     display:flex;
 
 
+
     flex-direction:column;
 
 
 
-    gap:22px;
+    gap:15px;
 
 
 
-    padding:26px;
+    padding:20px;
 
 
 
@@ -541,7 +594,9 @@ body::after{
 
 
 
-    backdrop-filter:blur(30px);
+    backdrop-filter:
+
+        blur(30px);
 
 
 
@@ -568,6 +623,7 @@ body::after{
 
     transition:
 
+
         transform .35s ease,
 
         box-shadow .35s ease;
@@ -578,17 +634,23 @@ body::after{
 
 
 
-/* Normal card hover only */
+
+
+
+/* Normal cards only */
+
 
 .employee-card:hover:not(.winner){
 
 
     transform:
 
+
         translateY(-5px);
 
 
 }
+
 
 
 
@@ -605,7 +667,9 @@ body::after{
     position:absolute;
 
 
+
     width:280px;
+
 
 
     height:280px;
@@ -616,7 +680,10 @@ body::after{
 
 
 
-    filter:blur(70px);
+    filter:
+
+
+        blur(70px);
 
 
 
@@ -632,6 +699,8 @@ body::after{
 
 
 }
+
+
 
 
 
@@ -665,6 +734,8 @@ body::after{
 
 
 }
+
+
 
 
 
@@ -714,6 +785,7 @@ body::after{
     display:flex;
 
 
+
     justify-content:center;
 
 
@@ -722,6 +794,7 @@ body::after{
 
 
 }
+
 
 
 
@@ -740,7 +813,7 @@ body::after{
 
 
 
-    max-width:320px;
+    max-width:260px;
 
 
 
@@ -769,16 +842,20 @@ body::after{
 
     backdrop-filter:
 
+
         blur(20px);
 
 
 
     transition:
 
+
         transform .35s ease;
 
 
 }
+
+
 
 
 
@@ -793,6 +870,7 @@ body::after{
 
 
 
+
     box-shadow:
 
 
@@ -804,8 +882,9 @@ body::after{
         inset 0 0 25px rgba(0,255,153,.10);
 
 
-
 }
+
+
 
 
 
@@ -820,6 +899,7 @@ body::after{
 
 
 
+
     box-shadow:
 
 
@@ -831,8 +911,9 @@ body::after{
         inset 0 0 25px rgba(51,153,255,.10);
 
 
-
 }
+
+
 
 
 
@@ -842,10 +923,12 @@ body::after{
 
     transform:
 
+
         scale(1.03);
 
 
 }
+
 
 
 
@@ -862,7 +945,7 @@ body::after{
 .employee-name{
 
 
-    height:78px;
+    height:65px;
 
 
 
@@ -878,11 +961,13 @@ body::after{
 
 
 
+
     border-radius:22px;
 
 
 
-    font-size:34px;
+
+    font-size:32px;
 
 
 
@@ -922,10 +1007,14 @@ body::after{
 
     backdrop-filter:
 
+
         blur(18px);
 
 
 }
+
+
+
 
 
 
@@ -956,6 +1045,7 @@ body::after{
 
 
 
+
 /* ==========================================================
    KPI CARDS
 ========================================================== */
@@ -964,7 +1054,7 @@ body::after{
 .stat-card{
 
 
-    height:140px;
+    height:110px;
 
 
 
@@ -1023,10 +1113,12 @@ body::after{
 
     transition:
 
+
         transform .30s ease;
 
 
 }
+
 
 
 
@@ -1036,6 +1128,7 @@ body::after{
 
     transform:
 
+
         translateY(-3px);
 
 
@@ -1044,10 +1137,13 @@ body::after{
 
 
 
+
+
+
 .stat-title{
 
 
-    font-size:17px;
+    font-size:16px;
 
 
 
@@ -1074,25 +1170,25 @@ body::after{
 
 
 
+
+
+
 .stat-value{
 
+    margin-top:8px;
 
-    margin-top:12px;
-
-
-
-    font-size:72px;
-
-
+    font-size:52px;
 
     font-weight:900;
 
-
-
     line-height:1;
 
+    letter-spacing:-1px;
 
 }
+
+
+
 
 
 
@@ -1111,6 +1207,8 @@ body::after{
 
 
 }
+
+
 
 
 
@@ -1141,6 +1239,7 @@ body::after{
     position:relative;
 
 
+
     display:flex;
 
 
@@ -1157,7 +1256,7 @@ body::after{
 
 
 
-    padding:30px;
+    padding:22px;
 
 
 
@@ -1180,6 +1279,7 @@ body::after{
 
 
     backdrop-filter:
+
 
         blur(30px);
 
@@ -1225,11 +1325,11 @@ body::after{
 
 
 
-    width:380px;
+    width:350px;
 
 
 
-    height:380px;
+    height:350px;
 
 
 
@@ -1254,15 +1354,18 @@ body::after{
 
 
 
-    left:-140px;
+    left:-120px;
 
 
 
-    bottom:-220px;
+    bottom:-200px;
 
 
 
-    filter:blur(70px);
+    filter:
+
+
+        blur(70px);
 
 
 }
@@ -1284,11 +1387,11 @@ body::after{
 
 
 
-    width:380px;
+    width:350px;
 
 
 
-    height:380px;
+    height:350px;
 
 
 
@@ -1313,15 +1416,18 @@ body::after{
 
 
 
-    right:-140px;
+    right:-120px;
 
 
 
-    top:-220px;
+    top:-200px;
 
 
 
-    filter:blur(70px);
+    filter:
+
+
+        blur(70px);
 
 
 }
@@ -1354,7 +1460,7 @@ body::after{
 
 
 
-    margin-bottom:24px;
+    margin-bottom:15px;
 
 
 }
@@ -1362,14 +1468,15 @@ body::after{
 
 
 
+
 .chart-header h2{
 
 
-    font-size:34px;
+    font-size:32px;
 
 
 
-    font-weight:800;
+    font-weight:900;
 
 
 
@@ -1381,10 +1488,11 @@ body::after{
 
 
 
+
 .chart-header p{
 
 
-    margin-top:8px;
+    margin-top:6px;
 
 
 
@@ -1395,10 +1503,11 @@ body::after{
 
 
 
-    font-size:16px;
+    font-size:15px;
 
 
 }
+
 
 
 
@@ -1431,6 +1540,7 @@ body::after{
 
 
 }
+
 
 
 
@@ -1501,8 +1611,9 @@ body::after{
 
 
 
+
 /* ==========================================================
-   COMMON TRANSITIONS
+   GLOBAL TRANSITIONS
 ========================================================== */
 
 
@@ -1514,23 +1625,17 @@ body::after{
 .employee-name{
 
 
-    transition:.35s ease;
+    transition:
+
+
+        .35s ease;
 
 
 }
 
-
-
-
-
-
-
-
-
 /* ==========================================================
    WINNER EFFECT
 ========================================================== */
-
 
 
 .winner{
@@ -1550,23 +1655,12 @@ body::after{
 
 
 
-
-.winner .profile-image{
-
-
-    animation:
+/* ==========================================================
+   WINNER IMAGE + NAME SYNC
+========================================================== */
 
 
-        winnerBeat 2s ease-in-out infinite;
-
-
-}
-
-
-
-
-
-
+.winner .profile-image,
 .winner .employee-name{
 
 
@@ -1585,8 +1679,9 @@ body::after{
 
 
 
+
 /* ==========================================================
-   WINNER COLORS
+   WINNER COLOURED GLOW
 ========================================================== */
 
 
@@ -1596,16 +1691,21 @@ body::after{
     box-shadow:
 
 
+
         0 0 25px rgba(0,255,153,.45),
+
 
 
         0 0 60px rgba(0,255,153,.35),
 
 
+
         0 25px 70px rgba(0,0,0,.55);
 
 
+
 }
+
 
 
 
@@ -1617,16 +1717,21 @@ body::after{
     box-shadow:
 
 
+
         0 0 25px rgba(51,153,255,.45),
+
 
 
         0 0 60px rgba(51,153,255,.35),
 
 
+
         0 25px 70px rgba(0,0,0,.55);
 
 
+
 }
+
 
 /* ==========================================================
    WINNER GLOW ANIMATION
@@ -1644,7 +1749,6 @@ body::after{
             brightness(1);
 
 
-
     }
 
 
@@ -1655,7 +1759,6 @@ body::after{
         filter:
 
             brightness(1.18);
-
 
 
     }
@@ -1670,7 +1773,6 @@ body::after{
             brightness(1);
 
 
-
     }
 
 
@@ -1683,8 +1785,9 @@ body::after{
 
 
 
+
 /* ==========================================================
-   WINNER HEARTBEAT SCALE
+   WINNER HEARTBEAT
 ========================================================== */
 
 
@@ -1697,8 +1800,8 @@ body::after{
 
         transform:
 
-            scale(1);
 
+            scale(1);
 
 
     }
@@ -1710,8 +1813,8 @@ body::after{
 
         transform:
 
-            scale(1.04);
 
+            scale(1.04);
 
 
     }
@@ -1721,53 +1824,8 @@ body::after{
 
 
 
-
-
-
-
-
 /* ==========================================================
-   WINNER HOVER BEHAVIOUR
-========================================================== */
-
-
-
-.employee-card:hover:not(.winner){
-
-
-    transform:
-
-        translateY(-5px);
-
-
-
-}
-
-
-
-
-
-
-.employee-card.winner:hover{
-
-
-    transform:
-
-        scale(1.04);
-
-
-
-}
-
-
-
-
-
-
-
-
-/* ==========================================================
-   WINNER IMAGE EXTRA LIGHT
+   WINNER IMAGE LIGHT
 ========================================================== */
 
 
@@ -1777,10 +1835,10 @@ body::after{
     box-shadow:
 
 
-        0 0 35px rgba(0,255,153,.70),
+        0 0 40px rgba(0,255,153,.75),
 
 
-        inset 0 0 25px rgba(0,255,153,.20);
+        inset 0 0 25px rgba(0,255,153,.25);
 
 
 
@@ -1796,14 +1854,15 @@ body::after{
     box-shadow:
 
 
-        0 0 35px rgba(51,153,255,.70),
+        0 0 40px rgba(51,153,255,.75),
 
 
-        inset 0 0 25px rgba(51,153,255,.20);
+        inset 0 0 25px rgba(51,153,255,.25);
 
 
 
 }
+
 
 
 
@@ -1813,7 +1872,7 @@ body::after{
 
 
 /* ==========================================================
-   WINNER NAME GLOW
+   WINNER NAME LIGHT
 ========================================================== */
 
 
@@ -1823,12 +1882,11 @@ body::after{
     text-shadow:
 
 
-        0 0 25px rgba(0,255,153,.80);
+        0 0 30px rgba(0,255,153,.85);
 
 
 
 }
-
 
 
 
@@ -1839,8 +1897,46 @@ body::after{
     text-shadow:
 
 
-        0 0 25px rgba(51,153,255,.80);
+        0 0 30px rgba(51,153,255,.85);
 
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   HOVER FIX
+========================================================== */
+
+
+.employee-card:hover:not(.winner){
+
+
+    transform:
+
+
+        translateY(-5px);
+
+
+}
+
+
+
+
+.employee-card.winner:hover{
+
+
+    transform:
+
+
+        scale(1.04);
 
 
 }
