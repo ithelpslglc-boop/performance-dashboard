@@ -421,3 +421,45 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(loadDashboard, 300000);
 
 });
+
+/* ==========================================================
+   AUTO PAGE SLIDESHOW
+========================================================== */
+
+
+const pagesContainer = document.querySelector(".pages-container");
+
+const pages = document.querySelectorAll(".page");
+
+
+let currentPage = 0;
+
+
+function autoSlide(){
+
+    currentPage++;
+
+
+    // If last page reached, go back to first page
+    if(currentPage >= pages.length){
+
+        currentPage = 0;
+
+    }
+
+
+    pagesContainer.scrollTo({
+
+        left: window.innerWidth * currentPage,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+
+// Change page every 10 seconds
+
+setInterval(autoSlide,10000);
