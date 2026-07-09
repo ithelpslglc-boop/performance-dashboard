@@ -116,7 +116,66 @@ async function loadDashboard() {
 
 }
 
+// ==========================================================
+// UPDATE LEADING CARD
+// ==========================================================
 
+function updateLeadingCard(
+    rasikaRevenue,
+    ramziRevenue
+){
+
+    const leadingText =
+        document.getElementById("leadingText");
+
+
+    const difference =
+        Math.abs(
+            rasikaRevenue - ramziRevenue
+        ).toLocaleString();
+
+
+
+    if(rasikaRevenue > ramziRevenue){
+
+
+        leadingText.innerHTML =
+
+        `
+        🏆 RASIKA IS LEADING BY ${difference}
+        `;
+
+
+    }
+
+
+    else if(ramziRevenue > rasikaRevenue){
+
+
+        leadingText.innerHTML =
+
+        `
+        🏆 RAMZI IS LEADING BY ${difference}
+        `;
+
+
+    }
+
+
+    else{
+
+
+        leadingText.innerHTML =
+
+        `
+        🤝 BOTH ARE CURRENTLY EQUAL
+        `;
+
+
+    }
+
+
+}
 
 // ==========================================================
 // CREATE BAR CHART
@@ -342,6 +401,11 @@ function createRevenueChart(
         }
 
     });
+
+    updateLeadingCard(
+    rasikaRevenue,
+    ramziRevenue
+);
 
 }
 

@@ -2052,3 +2052,102 @@ body::after{
 
 
 }
+
+.middle-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
+
+    gap:12px;
+
+}
+
+
+
+.middle-content .chart-card{
+
+    flex:1;
+
+    min-height:0;
+
+}
+
+
+
+
+.leading-card{
+
+
+    height:60px;
+
+    flex-shrink:0;
+
+
+    width:100%;
+
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+
+    border-radius:22px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        145deg,
+
+        rgba(255,255,255,.16),
+
+        rgba(255,255,255,.08)
+
+    );
+
+
+
+    backdrop-filter:blur(25px);
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,.18);
+
+
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,.35);
+
+
+
+    font-size:22px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+}
+
+#leadingText{
+
+    font-size:24px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
