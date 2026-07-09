@@ -1,62 +1,117 @@
 /* ==========================================================
+   GOOGLE FONT
+========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+
+/* ==========================================================
    RESET
 ========================================================== */
 
 *{
-
     margin:0;
     padding:0;
     box-sizing:border-box;
-
 }
-
 
 html,
 body{
-
     width:100%;
     height:100%;
-
 }
 
 
+/* ==========================================================
+   BODY
+========================================================== */
 
 body{
 
-    font-family:
-    "Segoe UI",
-    Arial,
-    sans-serif;
+    font-family:'Inter',sans-serif;
 
+    color:#ffffff;
 
-    background:
-
-    radial-gradient(
-        circle at top,
-        #303030,
-        #080808
-    );
-
-
-    color:white;
-
+    overflow:hidden;
 
     padding:20px;
 
+    background:
+        radial-gradient(circle at top left, rgba(0,255,153,.10), transparent 35%),
+        radial-gradient(circle at top right, rgba(51,153,255,.10), transparent 35%),
+        radial-gradient(circle at bottom, rgba(255,255,255,.04), transparent 45%),
+        linear-gradient(135deg,#090b10,#11151c 45%,#0b0f14);
 
-    overflow:hidden;
+    position:relative;
 
 }
 
 
+/* Ambient Glow */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:-150px;
+
+    background:
+
+        radial-gradient(circle,#00ff9922 0%,transparent 35%),
+
+        radial-gradient(circle at right,#3399ff22 0%,transparent 35%);
+
+    filter:blur(90px);
+
+    animation:ambientMove 18s ease-in-out infinite alternate;
+
+    z-index:-2;
+
+}
 
 
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            rgba(255,255,255,.015),
+            rgba(255,255,255,0)
+        );
+
+    pointer-events:none;
+
+}
+
+
+@keyframes ambientMove{
+
+    from{
+
+        transform:translate(-60px,-30px);
+
+    }
+
+    to{
+
+        transform:translate(60px,40px);
+
+    }
+
+}
 
 
 /* ==========================================================
    DASHBOARD
 ========================================================== */
-
 
 .dashboard{
 
@@ -64,802 +119,632 @@ body{
 
     height:100%;
 
-
     display:flex;
-
 
     flex-direction:column;
 
-
-    gap:20px;
-
+    gap:22px;
 
 }
-
-
-
-
-
 
 
 /* ==========================================================
    TITLE CARD
 ========================================================== */
 
-
 .title-card{
 
+    height:105px;
 
-    height:110px;
-
+    border-radius:28px;
 
     flex-shrink:0;
 
-
-    border-radius:30px;
-
-
-
     display:flex;
-
 
     justify-content:center;
 
-
     align-items:center;
 
+    position:relative;
 
-
-
+    overflow:hidden;
 
     background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.14),
+            rgba(255,255,255,.05)
+        );
 
+    backdrop-filter:blur(30px);
 
-    rgba(255,255,255,0.08);
-
-
-
-
-
-    backdrop-filter:
-
-
-    blur(25px);
-
-
-
-
-
-    border:
-
-
-    1px solid rgba(255,255,255,0.2);
-
-
-
-
+    border:1px solid rgba(255,255,255,.15);
 
     box-shadow:
 
+        0 25px 60px rgba(0,0,0,.45),
 
-    0 20px 60px rgba(0,0,0,0.7);
-
-
+        inset 0 1px rgba(255,255,255,.15);
 
 }
 
 
+.title-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    left:-90px;
+
+    top:-120px;
+
+    border-radius:50%;
+
+    background:rgba(0,255,153,.12);
+
+    filter:blur(60px);
+
+}
 
 
+.title-card::after{
 
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    right:-90px;
+
+    bottom:-120px;
+
+    border-radius:50%;
+
+    background:rgba(51,153,255,.12);
+
+    filter:blur(60px);
+
+}
 
 
 .title-card h1{
 
+    position:relative;
 
-    font-size:44px;
+    z-index:5;
 
+    font-size:42px;
 
     font-weight:900;
 
+    letter-spacing:5px;
 
-    letter-spacing:4px;
-
-
-    text-align:center;
-
+    text-transform:uppercase;
 
 }
-
-
-
-
-
-
-
 
 
 /* ==========================================================
    MAIN CONTENT
 ========================================================== */
 
-
 .content{
 
-
-    height:calc(100vh - 200px);
-
+    flex:1;
 
     display:grid;
 
+    grid-template-columns:.85fr 2.3fr .85fr;
 
-
-    grid-template-columns:
-
-
-    0.85fr 2.3fr 0.85fr;
-
-
-
-    gap:20px;
-
-
-
-    margin-bottom:30px;
-
+    gap:22px;
 
 }
-
-
-
-
-
-
-
 
 
 /* ==========================================================
-   EMPLOYEE CARDS
+   EMPLOYEE CARD
 ========================================================== */
-
 
 .employee-card{
 
-
-    padding:25px;
-
-
-    border-radius:35px;
-
-
-
-    display:flex;
-
-
-    flex-direction:column;
-
-
-    gap:20px;
-
-
-
-
-
-    backdrop-filter:
-
-
-    blur(25px);
-
-
-
-
-
-    box-shadow:
-
-
-    0 30px 70px rgba(0,0,0,0.7);
-
-
-
-
-
-    transition:0.4s;
-
-
+    position:relative;
 
     overflow:hidden;
 
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+    padding:26px;
+
+    border-radius:32px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.10),
+            rgba(255,255,255,.05)
+        );
+
+    backdrop-filter:blur(30px);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.45),
+
+        inset 0 1px rgba(255,255,255,.08);
+
+    transition:.35s ease;
 
 }
-
-
-
 
 
 .employee-card:hover{
 
-
-    transform:translateY(-8px);
-
+    transform:translateY(-5px);
 
 }
 
 
+.employee-card::before{
 
+    content:"";
 
+    position:absolute;
 
+    width:280px;
 
+    height:280px;
 
+    border-radius:50%;
+
+    filter:blur(70px);
+
+    opacity:.18;
+
+    top:-160px;
+
+    right:-120px;
+
+}
 
 
 /* ==========================================================
-   RASIKA CARD
+   RASIKA THEME
 ========================================================== */
-
 
 .rasika-card{
 
-
-    background:
-
-
-    linear-gradient(
-
-        145deg,
-
-        rgba(0,255,153,0.25),
-
-        rgba(0,70,45,0.45)
-
-    );
-
-
-
-    border:
-
-
-    2px solid rgba(0,255,153,0.7);
-
+    border:1px solid rgba(0,255,153,.30);
 
 }
 
+.rasika-card::before{
 
+    background:#00ff99;
 
-
-
-
-
+}
 
 
 /* ==========================================================
-   RAMZI CARD
+   RAMZI THEME
 ========================================================== */
-
 
 .ramzi-card{
 
+    border:1px solid rgba(51,153,255,.30);
 
-    background:
+}
 
+.ramzi-card::before{
 
-    linear-gradient(
-
-        145deg,
-
-        rgba(51,153,255,0.25),
-
-        rgba(0,40,100,0.5)
-
-    );
-
-
-
-    border:
-
-
-    2px solid rgba(51,153,255,0.8);
-
+    background:#3399ff;
 
 }
 
 
+/* ==========================================================
+   PROFILE SECTION
+========================================================== */
 
+.profile-section{
 
+    flex:1;
 
+    display:flex;
 
+    justify-content:center;
 
+    align-items:center;
 
+}
 
 /* ==========================================================
    PROFILE IMAGE
 ========================================================== */
 
-
-.profile-section{
-
-
-    flex:1;
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-
-}
-
-
-
-
-
 .profile-image{
 
-
     width:100%;
+    max-width:320px;
+    aspect-ratio:1/1;
 
+    object-fit:cover;
 
-    max-width:300px;
+    border-radius:28px;
 
+    padding:10px;
 
-    aspect-ratio:1;
+    background:rgba(255,255,255,.05);
 
+    backdrop-filter:blur(20px);
 
-    object-fit:contain;
-
-
-
-    padding:12px;
-
-
-
-    border-radius:30px;
-
-
-
-    background:
-
-
-    rgba(255,255,255,0.12);
-
-
-
-    transition:0.4s;
-
-
+    transition:.35s ease;
 
 }
-
-
-
-
-
-
-
-.profile-image:hover{
-
-
-    transform:scale(1.05);
-
-
-}
-
-
-
-
-
-
-
 
 .rasika-card .profile-image{
 
-
-    border:
-
-    5px solid #00ff99;
-
-
+    border:4px solid rgba(0,255,153,.85);
 
     box-shadow:
-
-
-    0 0 45px rgba(0,255,153,0.8);
-
-
+        0 0 25px rgba(0,255,153,.30),
+        inset 0 0 25px rgba(0,255,153,.10);
 
 }
-
-
-
-
-
-
-
 
 .ramzi-card .profile-image{
 
-
-    border:
-
-
-    5px solid #3399ff;
-
-
+    border:4px solid rgba(51,153,255,.85);
 
     box-shadow:
+        0 0 25px rgba(51,153,255,.30),
+        inset 0 0 25px rgba(51,153,255,.10);
 
+}
 
-    0 0 45px rgba(51,153,255,0.8);
+.profile-image:hover{
 
-
+    transform:scale(1.03);
 
 }
 
 
-
-
-
-
-
-
-
 /* ==========================================================
-   NAME CARD
+   EMPLOYEE NAME
 ========================================================== */
-
 
 .employee-name{
 
-
-    height:75px;
-
-
-    border-radius:25px;
-
-
+    height:78px;
 
     display:flex;
 
-
     justify-content:center;
-
 
     align-items:center;
 
+    border-radius:22px;
 
+    font-size:34px;
 
-
-
-    font-size:36px;
-
-
-    font-weight:900;
-
-
-
-
-
-    background:
-
-
-    rgba(255,255,255,0.12);
-
-
-
-    backdrop-filter:
-
-
-    blur(20px);
-
-
-}
-
-
-
-
-
-
-.rasika-card .employee-name{
-
-
-    color:#00ff99;
-
-
-}
-
-
-
-
-
-.ramzi-card .employee-name{
-
-
-    color:#3399ff;
-
-
-}
-
-
-
-
-
-
-
-
-
-/* ==========================================================
-   STAT CARDS
-========================================================== */
-
-
-.stat-card{
-
-
-    height:130px;
-
-
-    border-radius:25px;
-
-
-
-    display:flex;
-
-
-    flex-direction:column;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-
-
-
-    background:
-
-
-    rgba(255,255,255,0.12);
-
-
-
-
-
-    backdrop-filter:
-
-
-    blur(20px);
-
-
-
-
-
-    border:
-
-
-    1px solid rgba(255,255,255,0.15);
-
-
-}
-
-
-
-
-
-
-
-
-.stat-title{
-
-
-    font-size:22px;
-
+    font-weight:800;
 
     letter-spacing:1px;
 
+    background:
 
-    color:#dddddd;
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.12),
+            rgba(255,255,255,.05)
+        );
 
+    border:1px solid rgba(255,255,255,.08);
 
-}
-
-
-
-
-
-.stat-value{
-
-
-    margin-top:10px;
-
-
-    font-size:70px;
-
-
-    font-weight:900;
-
-
+    backdrop-filter:blur(18px);
 
 }
 
-
-
-
-
-
-
-
-.rasika-card .stat-value{
-
+.rasika-card .employee-name{
 
     color:#00ff99;
 
-
 }
 
-
-
-
-
-.ramzi-card .stat-value{
-
+.ramzi-card .employee-name{
 
     color:#3399ff;
 
-
 }
 
 
+/* ==========================================================
+   KPI CARDS
+========================================================== */
 
+.stat-card{
 
+    height:140px;
 
+    border-radius:22px;
 
+    display:flex;
 
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.10),
+            rgba(255,255,255,.05)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    transition:.30s ease;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.stat-title{
+
+    font-size:17px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    color:rgba(255,255,255,.70);
+
+}
+
+.stat-value{
+
+    margin-top:12px;
+
+    font-size:72px;
+
+    font-weight:900;
+
+    line-height:1;
+
+}
+
+.rasika-card .stat-value{
+
+    color:#00ff99;
+
+    text-shadow:0 0 20px rgba(0,255,153,.35);
+
+}
+
+.ramzi-card .stat-value{
+
+    color:#3399ff;
+
+    text-shadow:0 0 20px rgba(51,153,255,.35);
+
+}
 
 
 /* ==========================================================
    CHART CARD
 ========================================================== */
 
-
 .chart-card{
 
-
-    border-radius:35px;
-
-
-    padding:35px;
-
-
-
-    background:
-
-
-    rgba(255,255,255,0.08);
-
-
-
-
-
-    backdrop-filter:
-
-
-    blur(30px);
-
-
-
-
-
-    border:
-
-
-    1px solid rgba(255,255,255,0.2);
-
-
-
-
-
-    box-shadow:
-
-
-    0 30px 70px rgba(0,0,0,0.7);
-
-
+    position:relative;
 
     display:flex;
 
-
     flex-direction:column;
 
+    overflow:hidden;
 
+    border-radius:32px;
+
+    padding:30px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.10),
+            rgba(255,255,255,.05)
+        );
+
+    backdrop-filter:blur(30px);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.45),
+
+        inset 0 1px rgba(255,255,255,.08);
+
+}
+
+.chart-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:380px;
+
+    height:380px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(circle,
+            rgba(0,255,153,.10),
+            transparent 70%);
+
+    left:-140px;
+
+    bottom:-220px;
+
+    filter:blur(70px);
+
+}
+
+.chart-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:380px;
+
+    height:380px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(circle,
+            rgba(51,153,255,.10),
+            transparent 70%);
+
+    right:-140px;
+
+    top:-220px;
+
+    filter:blur(70px);
 
 }
 
 
-
-
-
-
-
-
+/* ==========================================================
+   CHART HEADER
+========================================================== */
 
 .chart-header{
 
+    position:relative;
+
+    z-index:2;
 
     text-align:center;
 
-
-    margin-bottom:20px;
-
+    margin-bottom:24px;
 
 }
-
-
-
 
 .chart-header h2{
 
-
     font-size:34px;
 
+    font-weight:800;
 
-    font-weight:900;
-
+    letter-spacing:1px;
 
 }
-
-
-
-
-
 
 .chart-header p{
 
+    margin-top:8px;
 
-    margin-top:5px;
+    color:rgba(255,255,255,.65);
 
-
-    color:#cccccc;
-
-
-    font-size:18px;
-
+    font-size:16px;
 
 }
 
 
-
-
-
-
-
-
+/* ==========================================================
+   CHART CONTAINER
+========================================================== */
 
 .chart-container{
 
-
     flex:1;
 
+    position:relative;
+
+    z-index:2;
+
+    min-height:0;
+
+}
+
+#revenueChart{
+
+    width:100%!important;
+
+    height:100%!important;
 
 }
 
 
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#555;
+
+    border-radius:10px;
+
+}
 
 
+/* ==========================================================
+   TRANSITIONS
+========================================================== */
 
+.title-card,
+.employee-card,
+.chart-card,
+.stat-card,
+.profile-image,
+.employee-name{
 
-#revenueChart{
-
-
-    width:100%!important;
-
-
-    height:100%!important;
-
+    transition:.35s ease;
 
 }
