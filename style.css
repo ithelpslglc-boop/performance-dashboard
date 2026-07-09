@@ -1750,13 +1750,13 @@ body::after{
 
     position:absolute;
 
-    top:15px;
+    top:10px;
 
-    right:140px;
+    right:90px;
 
-    width:100px;
+    width:80px;
 
-    height:100px;
+    height:80px;
 
     background-image:url("images/queen_crown.png");
 
