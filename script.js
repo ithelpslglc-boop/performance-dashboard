@@ -1,111 +1,148 @@
-// ==========================================
+// ==========================================================
 // GOOGLE APPS SCRIPT API URL
-// ==========================================
+// ==========================================================
 
-const API_URL = "https://script.google.com/macros/s/AKfycbz6FxLzFymdvGxZU3jYCf_7vDMNmKMLjUoR-r65vLLohdcIEbFAeoKZDO6n6TgbUcE/exec";
+const API_URL =
+    "https://script.google.com/macros/s/AKfycbz6FxLzFymdvGxZU3jYCf_7vDMNmKMLjUoR-r65vLLohdcIEbFAeoKZDO6n6TgbUcE/exec";
 
 
-// ==========================================
-// CHART VARIABLE
-// ==========================================
+
+// ==========================================================
+// GLOBAL VARIABLES
+// ==========================================================
 
 let revenueChart;
 
 
 
-// ==========================================
+// ==========================================================
 // LOAD DASHBOARD DATA
-// ==========================================
+// ==========================================================
 
-async function loadDashboard(){
+async function loadDashboard() {
 
-
-    try{
-
+    try {
 
         const response = await fetch(API_URL);
 
+        if (!response.ok) {
+            throw new Error("Unable to load dashboard data.");
+        }
 
         const data = await response.json();
 
+        console.log("Dashboard Data:", data);
 
 
-        // ===============================
+
+        // ==================================================
         // RASIKA DATA
-        // ===============================
+        // ==================================================
+
+        const rasikaRevenue = Number(data.rasika.closed);
+        const rasikaDeals = Number(data.rasika.total);
 
         document.getElementById("rasika-revenue").textContent =
-            data.rasika.total.toLocaleString();
-
+            rasikaRevenue.toLocaleString();
 
         document.getElementById("rasika-deals").textContent =
-            data.rasika.closed;
+            rasikaDeals.toLocaleString();
 
 
 
-
-        // ===============================
+        // ==================================================
         // RAMZI DATA
-        // ===============================
+        // ==================================================
+
+        const ramziRevenue = Number(data.ramzi.closed);
+        const ramziDeals = Number(data.ramzi.total);
 
         document.getElementById("ramzi-revenue").textContent =
-            data.ramzi.total.toLocaleString();
-
+            ramziRevenue.toLocaleString();
 
         document.getElementById("ramzi-deals").textContent =
-            data.ramzi.closed;
+            ramziDeals.toLocaleString();
 
 
 
+        // ==================================================
+        // DETERMINE WINNER
+        // ==================================================
 
-        // ===============================
-        // CREATE TOTAL REVENUE CHART
-        // ===============================
+        const rasikaCard =
+            document.querySelector(".rasika-card");
+
+        const ramziCard =
+            document.querySelector(".ramzi-card");
+
+        rasikaCard.classList.remove("winner");
+        ramziCard.classList.remove("winner");
+
+
+
+        if (rasikaRevenue > ramziRevenue) {
+
+            rasikaCard.classList.add("winner");
+
+        }
+
+        else if (ramziRevenue > rasikaRevenue) {
+
+            ramziCard.classList.add("winner");
+
+        }
+
+
+
+        // ==================================================
+        // DRAW BAR CHART
+        // ==================================================
 
         createRevenueChart(
-            data.rasika.total,
-            data.ramzi.total
-        );
 
+            rasikaRevenue,
+
+            ramziRevenue
+
+        );
 
     }
 
+    catch (error) {
 
-    catch(error){
-
-
-        console.error(
-            "Dashboard loading error:",
-            error
-        );
-
+        console.error("Dashboard Error:", error);
 
     }
-
 
 }
 
 
 
-
-
-// ==========================================
-// RASIKA VS RAMZI BAR CHART
-// ==========================================
+// ==========================================================
+// CREATE BAR CHART
+// ==========================================================
 
 function createRevenueChart(
-    rasikaTotal,
-    ramziTotal
-){
+
+    rasikaRevenue,
+
+    ramziRevenue
+
+) {
+
+        const canvas = document.getElementById("revenueChart");
+
+    if (!canvas) {
+
+        console.error("Chart canvas not found.");
+
+        return;
+
+    }
 
 
-    const ctx = document.getElementById(
-        "revenueChart"
-    );
 
-
-
-    if(revenueChart){
+    if (revenueChart) {
 
         revenueChart.destroy();
 
@@ -113,164 +150,210 @@ function createRevenueChart(
 
 
 
+    revenueChart = new Chart(canvas, {
 
-    revenueChart = new Chart(
-        ctx,
-        {
+        type: "bar",
 
+        data: {
 
-            type:"bar",
+            labels: [
 
+                "Rasika",
 
-            data:{
+                "Ramzi"
 
+            ],
 
-                labels:[
+            datasets: [
 
-                    "Rasika",
+                {
 
-                    "Ramzi"
+                    label: "Total Revenue",
 
-                ],
+                    data: [
 
+                        rasikaRevenue,
 
-                datasets:[
+                        ramziRevenue
 
-                    {
+                    ],
 
-                        label:"Total Revenue",
+                    backgroundColor: [
 
+                        "rgba(0,255,153,0.85)",
 
-                        data:[
+                        "rgba(51,153,255,0.85)"
 
-                            rasikaTotal,
+                    ],
 
-                            ramziTotal
+                    borderColor: [
 
-                        ],
+                        "#00ff99",
 
+                        "#3399ff"
 
-                        borderRadius:20,
+                    ],
 
+                    borderWidth: 4,
 
-                        backgroundColor:[
+                    borderRadius: 24,
 
-                            "#9b9b9b",
+                    borderSkipped: false,
 
-                            "#d5d5d5"
+                    barPercentage: 0.85,
 
-                        ]
+                    categoryPercentage: 0.85,
 
-                    }
+                    hoverBackgroundColor: [
 
-                ]
+                        "#00ff99",
 
-            },
+                        "#3399ff"
 
+                    ],
 
-
-            options:{
-
-
-                responsive:true,
-
-
-                maintainAspectRatio:false,
-
-
-
-                plugins:{
-
-
-                    legend:{
-
-
-                        display:false
-
-
-                    }
-
-
-
-                },
-
-
-
-                scales:{
-
-
-                    x:{
-
-
-                        ticks:{
-
-
-                            color:"#ffffff",
-
-                            font:{
-
-
-                                size:24,
-
-                                weight:"bold"
-
-                            }
-
-
-                        }
-
-
-                    },
-
-
-
-                    y:{
-
-
-                        beginAtZero:true,
-
-
-                        ticks:{
-
-
-                            color:"#ffffff",
-
-                            font:{
-
-
-                                size:20
-
-                            }
-
-
-                        }
-
-
-                    }
-
+                    hoverBorderWidth: 4
 
                 }
 
+            ]
 
+        },
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+            animation: {
+
+                duration: 1600,
+
+                easing: "easeOutQuart"
+
+            },
+
+            plugins: {
+
+                legend: {
+
+                    display: false
+
+                },
+
+                tooltip: {
+
+                    backgroundColor: "rgba(18,18,18,.95)",
+
+                    titleColor: "#ffffff",
+
+                    bodyColor: "#ffffff",
+
+                    padding: 16,
+
+                    cornerRadius: 14,
+
+                    displayColors: false,
+
+                    callbacks: {
+
+                        label(context) {
+
+                            return (
+                                "Revenue : " +
+                                Number(context.raw).toLocaleString()
+                            );
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            scales: {
+
+                x: {
+
+                    grid: {
+
+                        display: false
+
+                    },
+
+                    border: {
+
+                        display: false
+
+                    },
+
+                    ticks: {
+
+                        color: "#ffffff",
+
+                        font: {
+
+                            size: 24,
+
+                            weight: "700"
+
+                        }
+
+                    }
+
+                },
+
+                y: {
+
+                    beginAtZero: true,
+
+                    border: {
+
+                        display: false
+
+                    },
+
+                    grid: {
+
+                        color: "rgba(255,255,255,.12)",
+
+                        drawBorder: false
+
+                    },
+
+                    ticks: {
+
+                        color: "rgba(255,255,255,.70)",
+
+                        font: {
+
+                            size: 16
+
+                        }
+
+                    }
+
+                }
 
             }
 
-
-
         }
 
-    );
-
-
+    });
 
 }
 
+// ==========================================================
+// INITIALIZE DASHBOARD
+// ==========================================================
 
+document.addEventListener("DOMContentLoaded", () => {
 
+    loadDashboard();
 
+    // Refresh every 5 minutes
+    setInterval(loadDashboard, 300000);
 
-// ==========================================
-// START
-// ==========================================
-
-loadDashboard();
+});

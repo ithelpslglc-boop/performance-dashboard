@@ -7,7 +7,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Performance Dashboard</title>
+
+    <title>
+        July Performance Stats
+    </title>
 
 
     <!-- Favicon -->
@@ -25,52 +28,80 @@
 </head>
 
 
+
 <body>
+
 
 
 <div class="dashboard">
 
 
-    <!-- ==========================================
-                TITLE CARD
-    ========================================== -->
+
+    <!-- ================================
+            TITLE
+    ================================= -->
+
 
     <header class="title-card">
 
-        <h1>
-            July Performance Stats
-        </h1>
+
+        <div class="title-content">
+
+
+            <h1>
+                JULY PERFORMANCE STATS
+            </h1>
+
+
+        </div>
+
 
     </header>
 
 
 
 
-    <!-- ==========================================
-                MAIN CONTENT
-    ========================================== -->
+
+
+
+    <!-- ================================
+            CONTENT
+    ================================= -->
+
 
     <main class="content">
 
 
 
-        <!-- ==========================================
-                    RASIKA CARD
-        ========================================== -->
 
 
-        <section class="employee-card">
+
+
+        <!-- ================================
+                RASIKA CARD
+        ================================= -->
+
+
+        <section class="employee-card rasika-card">
 
 
             <div class="profile-section">
 
+
                 <img
+
                     src="images/rasika.png"
+
                     alt="Rasika"
+
                     class="profile-image"
+
                 >
 
+
             </div>
+
+
 
 
 
@@ -83,22 +114,32 @@
 
 
 
+
+
+
+
+            <!-- REVENUE -->
+
             <div class="stat-card">
 
 
                 <div class="stat-title">
 
-                    Total Revenue
+                    TOTAL REVENUE
 
                 </div>
 
 
-                <div 
+                <div
+
                     class="stat-value"
+
                     id="rasika-revenue"
+
                 >
 
                     0
+
 
                 </div>
 
@@ -108,28 +149,40 @@
 
 
 
+
+
+
+
+            <!-- DEALS -->
 
             <div class="stat-card">
 
 
                 <div class="stat-title">
 
-                    Number of Deals
+                    NUMBER OF DEALS
 
                 </div>
 
 
-                <div 
+                <div
+
                     class="stat-value"
+
                     id="rasika-deals"
+
                 >
 
                     0
+
 
                 </div>
 
 
             </div>
+
+
+
 
 
 
@@ -140,15 +193,52 @@
 
 
 
-        <!-- ==========================================
-                    BAR CHART
-        ========================================== -->
+
+
+
+
+        <!-- ================================
+                CHART
+        ================================= -->
 
 
         <section class="chart-card">
 
 
-            <canvas id="revenueChart"></canvas>
+
+            <div class="chart-header">
+
+
+                <h2>
+
+                    RASIKA VS RAMZI
+
+                </h2>
+
+
+
+                <p>
+
+                    Revenue Comparison
+
+                </p>
+
+
+            </div>
+
+
+
+
+
+            <div class="chart-container">
+
+
+                <canvas id="revenueChart"></canvas>
+
+
+            </div>
+
+
 
 
         </section>
@@ -159,25 +249,33 @@
 
 
 
-        <!-- ==========================================
-                    RAMZI CARD
-        ========================================== -->
 
 
-        <section class="employee-card">
+        <!-- ================================
+                RAMZI CARD
+        ================================= -->
+
+
+        <section class="employee-card ramzi-card">
+
 
 
             <div class="profile-section">
 
 
                 <img
+
                     src="images/ramzi.png"
+
                     alt="Ramzi"
+
                     class="profile-image"
+
                 >
 
 
             </div>
+
 
 
 
@@ -192,22 +290,31 @@
 
 
 
+
+
+
+            <!-- REVENUE -->
+
             <div class="stat-card">
 
 
                 <div class="stat-title">
 
-                    Total Revenue
+                    TOTAL REVENUE
 
                 </div>
 
 
-                <div 
+                <div
+
                     class="stat-value"
+
                     id="ramzi-revenue"
+
                 >
 
                     0
+
 
                 </div>
 
@@ -218,28 +325,40 @@
 
 
 
+
+
+
+            <!-- DEALS -->
 
             <div class="stat-card">
 
 
                 <div class="stat-title">
 
-                    Number of Deals
+                    NUMBER OF DEALS
 
                 </div>
 
 
-                <div 
+                <div
+
                     class="stat-value"
+
                     id="ramzi-deals"
+
                 >
 
                     0
+
 
                 </div>
 
 
             </div>
+
+
+
+
 
 
 
@@ -247,7 +366,12 @@
 
 
 
+
+
+
     </main>
+
+
 
 
 
@@ -256,9 +380,10 @@
 
 
 
-<!-- JavaScript -->
+
 
 <script src="script.js"></script>
+
 
 
 </body>
