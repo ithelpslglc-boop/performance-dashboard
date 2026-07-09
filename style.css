@@ -1192,7 +1192,6 @@ body::after{
 
 
 
-
 .rasika-card .stat-value{
 
 
@@ -1733,6 +1732,56 @@ body::after{
 }
 
 
+
+
+
+
+
+
+
+/* ==========================================================
+   WINNER CROWN IMAGE
+========================================================== */
+
+
+.employee-card.winner::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:15px;
+
+    right:140px;
+
+    width:100px;
+
+    height:100px;
+
+    background-image:url("images/queen_crown.png");
+
+    background-size:contain;
+
+    background-repeat:no-repeat;
+
+    background-position:center;
+
+    z-index:10;
+
+
+    animation:
+
+        crownFloat 2s ease-in-out infinite;
+
+
+    filter:
+
+        drop-shadow(
+            0 0 15px rgba(255, 255, 255, 0.85)
+        );
+
+}
+
 /* ==========================================================
    WINNER GLOW ANIMATION
 ========================================================== */
@@ -1821,6 +1870,60 @@ body::after{
 
 
 }
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   CROWN FLOAT
+========================================================== */
+
+
+@keyframes crownFloat{
+
+
+    0%,
+    100%{
+
+
+        transform:
+
+
+            translateY(0)
+
+            rotate(-5deg);
+
+
+    }
+
+
+
+    50%{
+
+
+        transform:
+
+
+            translateY(-8px)
+
+            rotate(5deg);
+
+
+    }
+
+
+}
+
+
+
+
+
+
 
 
 
