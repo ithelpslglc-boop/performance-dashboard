@@ -2173,10 +2173,7 @@ body::after{
     line-height:1;
 
     text-shadow:
-
-        0 0 20px rgba(255,215,0,.8),
-
-        0 0 45px rgba(255,215,0,.55);
+        0 0 6px rgba(255,215,0,.35);
 
 }
 
