@@ -1,19 +1,4 @@
 // ==========================================================
-// CREATE CLONE OF FIRST PAGE
-// ==========================================================
-
-const pagesContainer = document.querySelector(".pages-container");
-
-const firstPage = document.querySelector(".page");
-
-const clonedPage = firstPage.cloneNode(true);
-
-clonedPage.classList.add("page-clone");
-
-pagesContainer.appendChild(clonedPage);
-
-
-// ==========================================================
 // GOOGLE APPS SCRIPT API URL
 // ==========================================================
 
@@ -438,62 +423,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// ==========================================================
-// AUTO PAGE SLIDER
-// ==========================================================
+/* ==========================================================
+   AUTO PAGE SLIDESHOW
+========================================================== */
+
+
+const pagesContainer = document.querySelector(".pages-container");
 
 const pages = document.querySelectorAll(".page");
 
-const realPages = pages.length - 1;
 
 let currentPage = 0;
 
-setInterval(() => {
+
+function autoSlide(){
 
     currentPage++;
 
-    pagesContainer.scrollTo({
 
-        left: currentPage * window.innerWidth,
+    // If last page reached, go back to first page
+    if(currentPage >= pages.length){
 
-        behavior: "smooth"
-
-    });
-
-},10000);
-
-// ==========================================================
-// INFINITE LOOP
-// ==========================================================
-
-pagesContainer.addEventListener("scroll", () => {
-
-    const pageWidth = window.innerWidth;
-
-    const clonePosition = realPages * pageWidth;
-
-    if (
-
-        currentPage === realPages &&
-
-        Math.abs(pagesContainer.scrollLeft - clonePosition) < 5
-
-    ){
-
-        setTimeout(() => {
-
-            pagesContainer.style.scrollBehavior = "auto";
-
-            pagesContainer.scrollLeft = 0;
-
-            currentPage = 0;
-
-            pagesContainer.offsetHeight;
-
-            pagesContainer.style.scrollBehavior = "smooth";
-
-        },500);
+        currentPage = 0;
 
     }
 
-});
+
+    pagesContainer.scrollTo({
+
+        left: window.innerWidth * currentPage,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+
+// Change page every 10 seconds
+
+setInterval(autoSlide,10000);
