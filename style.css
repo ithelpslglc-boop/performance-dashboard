@@ -2150,7 +2150,7 @@ body::after{
 
     gap:15px;
 
-    font-size:32px;
+    font-size:30px;
 
     font-weight:900;
 
@@ -2273,7 +2273,7 @@ body::after{
 
 .summary-card{
 
-    width:75%;
+    width:70%;
 
     border-radius:35px;
 
@@ -2292,7 +2292,7 @@ body::after{
     box-shadow:
         0 25px 60px rgba(0,0,0,.45);
 
-    padding:40px;
+    padding:30px;
 
 }
 
@@ -2372,7 +2372,7 @@ body::after{
 
 .award-image{
 
-    flex:0 0 260px;
+    flex:0 0 220px;
 
     display:flex;
 
@@ -2386,9 +2386,9 @@ body::after{
 
 .award-image img{
 
-    width:300px;
+    width:260px;
 
-    height:300px;
+    height:260px;
 
     object-fit:cover;
 
@@ -2462,7 +2462,7 @@ body::after{
 
 .award-title{
 
-    font-size:40px;
+    font-size:34px;
 
     font-weight:800;
 
@@ -2521,7 +2521,7 @@ body::after{
 
 .senior-card .award-info{
 
-    padding-left:80px;
+    padding-left:60px;
 
 }
 
@@ -2531,7 +2531,7 @@ body::after{
 
     text-align:right;
 
-    padding-right:80px;
+    padding-right:60px;
 
 }
 
