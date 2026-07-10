@@ -2255,7 +2255,13 @@ body::after{
 
     grid-template-rows:1fr 1fr;
 
-    gap:5px;
+    gap:25px;
+
+    justify-items:center;
+
+    transform:scale(0.90);
+
+    transform-origin:center center;
 
 }
 
