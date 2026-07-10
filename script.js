@@ -142,7 +142,8 @@ function updateLeadingCard(
         leadingText.innerHTML =
 
         `
-        🏆 RASIKA IS LEADING BY ${difference}
+        🏆 RASIKA IS LEADING BY
+        <span class="lead-number">${difference}</span>
         `;
 
 
@@ -155,7 +156,8 @@ function updateLeadingCard(
         leadingText.innerHTML =
 
         `
-        🏆 RAMZI IS LEADING BY ${difference}
+        🏆 RAMZI IS LEADING BY
+        <span class="lead-number">${difference}</span>
         `;
 
 
@@ -173,7 +175,6 @@ function updateLeadingCard(
 
 
     }
-
 
 }
 
