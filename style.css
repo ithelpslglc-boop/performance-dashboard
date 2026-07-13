@@ -164,7 +164,7 @@ body::before{
 
 
 
-    filter:blur(90px);
+    filter:blur(35px);
 
 
 
@@ -407,7 +407,7 @@ body::after{
 
     filter:
 
-        blur(60px);
+        blur(20px);
 
 
 }
@@ -456,7 +456,7 @@ body::after{
 
     filter:
 
-        blur(60px);
+        blur(20px);
 
 
 }
@@ -683,7 +683,7 @@ body::after{
     filter:
 
 
-        blur(70px);
+        blur(20px);
 
 
 
@@ -1365,7 +1365,7 @@ body::after{
     filter:
 
 
-        blur(70px);
+        blur(20px);
 
 
 }
@@ -1427,7 +1427,7 @@ body::after{
     filter:
 
 
-        blur(70px);
+        blur(20px);
 
 
 }
@@ -2282,7 +2282,7 @@ body::after{
             rgba(255,255,255,.05)
         );
 
-    backdrop-filter:blur(30px);
+    backdrop-filter:blur(8px);
 
     border:1px solid rgba(255,255,255,.15);
 
