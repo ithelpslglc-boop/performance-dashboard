@@ -2570,3 +2570,188 @@ body::after{
         inset 0 0 25px rgba(255,255,255,.35);
 
 }
+
+/* ==========================================================
+   PAGE 3 - TEAM MARKETING
+========================================================== */
+
+.marketing-content{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+
+
+/* ==========================================================
+   MARKETING CARDS
+========================================================== */
+
+.marketing-card{
+
+    width:75%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 50px;
+
+    border-radius:30px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.12),
+            rgba(255,255,255,.05)
+        );
+
+    backdrop-filter:blur(20px);
+
+    border:2px solid rgba(255,255,255,.10);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.40);
+
+}
+
+
+
+/* ==========================================================
+   CARD HEIGHTS
+========================================================== */
+
+.krashan-card{
+
+    height:195px;
+
+}
+
+.shara-card{
+
+    height:125px;
+
+}
+
+.sasly-card{
+
+    height:125px;
+
+}
+
+
+
+/* ==========================================================
+   TEXT
+========================================================== */
+
+.marketing-name{
+
+    font-size:50px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+.marketing-value{
+
+    font-size:72px;
+
+    font-weight:900;
+
+}
+
+
+
+/* ==========================================================
+   KRASHAN - ELECTRIC CYAN
+========================================================== */
+
+.krashan-card{
+
+    border-color:#29B6F6;
+
+    box-shadow:
+        0 0 20px rgba(41,182,246,.20),
+        0 18px 45px rgba(0,0,0,.45);
+
+}
+
+.krashan-card .marketing-name,
+.krashan-card .marketing-value{
+
+    color:#6FD9FF;
+
+    text-shadow:
+        0 0 8px rgba(41,182,246,.25);
+
+}
+
+
+
+/* ==========================================================
+   SHARA - VIOLET
+========================================================== */
+
+.shara-card{
+
+    border-color:#9C6BFF;
+
+    box-shadow:
+        0 0 20px rgba(156,107,255,.20),
+        0 18px 45px rgba(0,0,0,.45);
+
+}
+
+.shara-card .marketing-name,
+.shara-card .marketing-value{
+
+    color:#D2B6FF;
+
+    text-shadow:
+        0 0 8px rgba(156,107,255,.25);
+
+}
+
+
+
+/* ==========================================================
+   SASLY - CORAL ORANGE
+========================================================== */
+
+.sasly-card{
+
+    border-color:#FF7A59;
+
+    box-shadow:
+        0 0 20px rgba(255,122,89,.20),
+        0 18px 45px rgba(0,0,0,.45);
+
+}
+
+.sasly-card .marketing-name,
+.sasly-card .marketing-value{
+
+    color:#FFB08C;
+
+    text-shadow:
+        0 0 8px rgba(255,122,89,.25);
+
+}
