@@ -2686,7 +2686,7 @@ body::after{
 
 .krashan-card{
 
-    border-color:#29B6F6;
+    border-color:#ffffff;
 
     box-shadow:
         0 0 20px rgba(41,182,246,.20),
@@ -2697,7 +2697,7 @@ body::after{
 .krashan-card .marketing-name,
 .krashan-card .marketing-value{
 
-    color:#6FD9FF;
+    color:#ffffff;
 
     text-shadow:
         0 0 8px rgba(41,182,246,.25);
@@ -2712,7 +2712,7 @@ body::after{
 
 .shara-card{
 
-    border-color:#9C6BFF;
+    border-color:#ffffff;
 
     box-shadow:
         0 0 20px rgba(156,107,255,.20),
@@ -2723,7 +2723,7 @@ body::after{
 .shara-card .marketing-name,
 .shara-card .marketing-value{
 
-    color:#D2B6FF;
+    color:#ffffff;
 
     text-shadow:
         0 0 8px rgba(156,107,255,.25);
@@ -2738,7 +2738,7 @@ body::after{
 
 .sasly-card{
 
-    border-color:#FF7A59;
+    border-color:#ffffff;
 
     box-shadow:
         0 0 20px rgba(255,122,89,.20),
@@ -2749,7 +2749,7 @@ body::after{
 .sasly-card .marketing-name,
 .sasly-card .marketing-value{
 
-    color:#FFB08C;
+    color:#ffffff;
 
     text-shadow:
         0 0 8px rgba(255,122,89,.25);
